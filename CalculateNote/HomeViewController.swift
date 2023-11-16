@@ -21,15 +21,24 @@ class HomeViewController: UIViewController {
         createStudentList()
         setTableView()
         setupTapGestureRecognizer()
+        title = "Ana Sayfa"
         view.backgroundColor = .systemMint
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+           super.viewWillAppear(animated)
 
-        tableView.reloadData()
-    }
-    
+           loadStudents()
+
+           // Eğer öğrenci listesi boşsa varsayılan öğrenci listesini oluştur
+           if studentList.isEmpty {
+               createStudentList()
+               saveStudents()
+           }
+
+           tableView.reloadData()
+       }
+  
     private func setTableView() {
         studentView.nameTextField.text = ""
         studentView.gradeTextField1.text = ""
@@ -48,11 +57,11 @@ class HomeViewController: UIViewController {
     }
     
     private func loadStudents() {
-        if let savedData = UserDefaults.standard.data(forKey: "studentsKey"),
-           let loadedStudents = try? JSONDecoder().decode([Students].self, from: savedData) {
-            studentList = loadedStudents
-        }
-    }
+           if let savedData = UserDefaults.standard.data(forKey: "studentsKey"),
+              let loadedStudents = try? JSONDecoder().decode([Students].self, from: savedData) {
+               studentList = loadedStudents
+           }
+       }
     
     private func createStudentList() {
         for _ in 1...40 {
@@ -83,7 +92,7 @@ class HomeViewController: UIViewController {
         
         calculateButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(-30)
+            make.bottom.equalTo(-90)
             make.height.equalTo(40)
             make.width.equalTo(100)
         }
@@ -151,4 +160,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+           cell.textLabel?.text = "\(indexPath.row + 1)"
+       }
 }

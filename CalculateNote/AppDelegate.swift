@@ -9,16 +9,31 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let viewController = HomeViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: viewController)
         
-        window?.rootViewController = navigationController
+        let homeViewController = HomeViewController()
+        let homeNavController = UINavigationController(rootViewController: homeViewController)
+        
+        let tabBarController = UITabBarController()
+        let calculateNavController = NotesViewController()
+        let secondNavController = UINavigationController(rootViewController: calculateNavController)
+        
+        tabBarController.viewControllers = [homeNavController, calculateNavController]
+        
+        let homeTabBarItem = UITabBarItem(title: "Ana Sayfa", image: nil, tag: 0)
+        homeNavController.tabBarItem = homeTabBarItem
+        
+        let secondTabBarItem = UITabBarItem(title: "Hesapla", image: nil, tag: 1)
+        calculateNavController.tabBarItem = secondTabBarItem
+        
+        tabBarController.tabBar.barTintColor = .purple
+        
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true

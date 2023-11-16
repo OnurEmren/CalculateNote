@@ -117,26 +117,26 @@ class StudentsView: UITableViewCell, UITextFieldDelegate {
     func setupConstraints() {
         nameTextField.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(40)
         }
         
         gradeTextField1.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(40)
             make.width.equalTo(60)
             make.height.equalTo(40)
         }
         
         gradeTextField2.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(90)
+            make.left.equalToSuperview().offset(110)
             make.width.equalTo(60)
             make.height.equalTo(40)
         }
         
         gradeTextField3.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(160)
+            make.left.equalToSuperview().offset(180)
             make.width.equalTo(60)
             make.height.equalTo(40)
         }
