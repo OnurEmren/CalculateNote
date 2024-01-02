@@ -6,39 +6,73 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomeViewController: UIViewController {
     
     var tableView: UITableView!
     var studentList = [Students]()
     var studentView = StudentsView()
+    var pageCount = 0
+    var squareData: SquareData?
+    
+    init(squareData: SquareData) {
+   
+        self.squareData = squareData
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(false, animated: false)
         loadStudents()
         setupTableView()
         createStudentList()
         setTableView()
         setupTapGestureRecognizer()
-        title = "Ana Sayfa"
         view.backgroundColor = .systemMint
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
+        
+        loadStudents()
+        if studentList.isEmpty {
+            createStudentList()
+            saveStudents()
+        }
+        
+        tableView.reloadData()
+    }
+    
+    @objc func addTapped() {
+        let alertController = UIAlertController(title: "Sayfa İsmi", message: "Lütfen sayfa ismini girin", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Sayfa Adı"
+        }
 
-           loadStudents()
+        let addAction = UIAlertAction(title: "Tamam", style: .default) { [weak self] _ in
+            guard let self = self, let textField = alertController.textFields?.first else { return }
 
-           // Eğer öğrenci listesi boşsa varsayılan öğrenci listesini oluştur
-           if studentList.isEmpty {
-               createStudentList()
-               saveStudents()
-           }
+            let pageName = textField.text ?? "Sayfa \(self.pageCount)"
+            let newViewController = NewViewController()
+            newViewController.navigationItem.title = pageName
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            self.pageCount += 1
+        }
 
-           tableView.reloadData()
-       }
-  
+        let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     private func setTableView() {
         studentView.nameTextField.text = ""
         studentView.gradeTextField1.text = ""
@@ -48,20 +82,19 @@ class HomeViewController: UIViewController {
     
     private func saveStudents() {
         do {
-            // Öğrenci listesini Data'ya dönüştür ve UserDefaults'a kaydet
             let encodedData = try JSONEncoder().encode(studentList)
-            UserDefaults.standard.set(encodedData, forKey: "studentsKey")
+            UserDefaults.standard.set(encodedData, forKey: "onur")
         } catch {
             print("Verileri kaydederken bir hata oluştu: \(error.localizedDescription)")
         }
     }
     
     private func loadStudents() {
-           if let savedData = UserDefaults.standard.data(forKey: "studentsKey"),
-              let loadedStudents = try? JSONDecoder().decode([Students].self, from: savedData) {
-               studentList = loadedStudents
-           }
-       }
+        if let savedData = UserDefaults.standard.data(forKey: "onur"),
+           let loadedStudents = try? JSONDecoder().decode([Students].self, from: savedData) {
+            studentList = loadedStudents
+        }
+    }
     
     private func createStudentList() {
         for _ in 1...40 {
@@ -114,20 +147,20 @@ class HomeViewController: UIViewController {
         }
         saveStudents()
     }
-
     
     private func setupTapGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
-
-    @objc 
+    
+    @objc
     private func dismissKeyboard() {
         view.endEditing(true)
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         studentList.count
     }
@@ -143,6 +176,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateUI(with: student)
         cell.updateResultLabel(withAverage: calculateAverage(for: student))
         cell.backgroundColor = .systemMint
+   
         return cell
     }
     
@@ -162,6 +196,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-           cell.textLabel?.text = "\(indexPath.row + 1)"
-       }
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+    }
 }

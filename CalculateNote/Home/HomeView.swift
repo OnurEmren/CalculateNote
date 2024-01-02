@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class StudentsView: UITableViewCell, UITextFieldDelegate {
+class HomeView: UITableViewCell, UITextFieldDelegate {
     
     var nameTextField: UITextField!
     var resultLabel: UILabel!
@@ -18,9 +18,7 @@ class StudentsView: UITableViewCell, UITextFieldDelegate {
     var gradeTextField3: UITextField!
     var gradeTextFields: [UITextField] = []
     var student: Students!
-    
-    var displayButton: UIButton!
-    
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
