@@ -16,14 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let squareViewController = SquareViewController()
-        let homeNavController = UINavigationController(rootViewController: squareViewController)
-                
-        window?.rootViewController = homeNavController
         window?.makeKeyAndVisible()
+        UINavigationBar.appearance().tintColor = UIColor.white
+
+        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            // Uygulama ilk kez açılıyorsa, onboarding ekranını göster
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            showOnboardingScreen()
+        } else {
+            // Uygulama daha önce açıldıysa, ana ekranı göster
+            showMainScreen()
+        }
         
         return true
     }
+    
+    func showOnboardingScreen() {
+        let onboardingViewController = ManageOnBoardingViewController()
+        let navigationController = UINavigationController(rootViewController: onboardingViewController)
+        window?.rootViewController = navigationController
+    }
+    
+    func showMainScreen() {
+        let squareViewController = SquareViewController()
+        let squareNavController = UINavigationController(rootViewController: squareViewController)
+        window?.rootViewController = squareNavController
+        
+    }
+
 }
+
 

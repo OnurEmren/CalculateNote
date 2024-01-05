@@ -16,9 +16,9 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     var gradeTextField2: UITextField!
     var gradeTextField3: UITextField!
     var gradeTextFields: [UITextField] = []
-    var studentList: [Students] = []
+    var studentList: [StudentAndNotesModel] = []
     var squareData: SquareData?
-    var student: Students!
+    var student: StudentAndNotesModel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,37 +34,53 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
-        setupConstraints()
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupUI() {
         nameTextField = UITextField()
         nameTextField.borderStyle = .roundedRect
+        nameTextField.layer.borderWidth = 1.5
+        nameTextField.layer.cornerRadius = 10
+        nameTextField.layer.masksToBounds = true
+        nameTextField.font = UIFont.systemFont(ofSize: 18)
         nameTextField.placeholder = "Öğrenci Adı"
+        nameTextField.textColor = Colors.cellsColor
+        nameTextField.backgroundColor = Colors.lightThemeColor
         contentView.addSubview(nameTextField)
         
         gradeTextField1 = UITextField()
         gradeTextField1.borderStyle = .roundedRect
         gradeTextField1.placeholder = "Not 1"
         gradeTextField1.keyboardType = .numberPad
+        gradeTextField1.textColor = Colors.darkThemeColor
+        gradeTextField1.layer.borderWidth = 1.5
+        gradeTextField1.layer.cornerRadius = 10
+        gradeTextField1.layer.masksToBounds = true
         contentView.addSubview(gradeTextField1)
         
         gradeTextField2 = UITextField()
         gradeTextField2.borderStyle = .roundedRect
         gradeTextField2.keyboardType = .numberPad
-        gradeTextField1.placeholder = "Not 2"
+        gradeTextField2.placeholder = "Not 2"
+        gradeTextField2.textColor = Colors.darkThemeColor
+        gradeTextField2.layer.borderWidth = 1.5
+        gradeTextField2.layer.cornerRadius = 10
+        gradeTextField2.layer.masksToBounds = true
         contentView.addSubview(gradeTextField2)
         
         gradeTextField3 = UITextField()
         gradeTextField3.borderStyle = .roundedRect
         gradeTextField3.keyboardType = .numberPad
-        gradeTextField1.placeholder = "Not 3"
+        gradeTextField3.placeholder = "Not 3"
+        gradeTextField3.textColor = Colors.darkThemeColor
+        gradeTextField3.layer.borderWidth = 1.5
+        gradeTextField3.layer.cornerRadius = 10
+        gradeTextField3.layer.masksToBounds = true
         contentView.addSubview(gradeTextField3)
         
         gradeTextFields = [gradeTextField1, gradeTextField2, gradeTextField3]
-        
+
         for (index, gradeTextField) in gradeTextFields.enumerated() {
             gradeTextField.tag = index
             gradeTextField.addTarget(self, action: #selector(gradeTextFieldDidChange(_:)), for: .editingChanged)
@@ -82,29 +98,12 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let indexPath = getIndexPath(for: textField), let text = textField.text {
-            // Öğrencinin adını ya da notlarını güncelle
-            switch textField {
-            case nameTextField:
-                student?.name = text
-            case gradeTextField1:
-                student?.grades[0] = Double(text) ?? 0
-            case gradeTextField2:
-                student?.grades[1] = Double(text) ?? 0.0
-            case gradeTextField3:
-                student?.grades[2] = Double(text) ?? 0.0
-            default:
-                break
-            }
-        }
-    }
-    
-    func updateUI(with student: Students) {
+    func updateUI(with student: StudentAndNotesModel) {
           nameTextField.text = student.name
           gradeTextField1.text = "\(student.grades[0])"
           gradeTextField2.text = "\(student.grades[1])"
           gradeTextField3.text = "\(student.grades[2])"
+
       }
     
     func setupConstraints() {
@@ -137,9 +136,43 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func updateResultLabel(withAverage average: Double) {
         resultLabel.text = "Ortalama: \(String(format: "%.2f", average))"
+        resultLabel.textColor = average < 50.0 ? .red : Colors.darkThemeColor
         resultLabel.isHidden = false
     }
-  
+    
+    func updateGradeTextFieldColors(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            textField.backgroundColor = Colors.lightThemeColor
+            textField.textColor = Colors.darkThemeColor
+        } else {
+            textField.backgroundColor = Colors.darkThemeColor
+            textField.textColor = Colors.lightThemeColor
+            if !textField.isEditing {
+                textField.textColor = .white
+                textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+          if let _ = getIndexPath(for: textField), let text = textField.text {
+              switch textField {
+              case nameTextField:
+                  student?.name = text
+                  updateGradeTextFieldColors(textField)
+              case gradeTextField1, gradeTextField2, gradeTextField3:
+                  if let grade = Double(text) {
+                      let index = textField.tag
+                      student?.grades[index] = grade
+                  }
+                  updateGradeTextFieldColors(textField)
+              default:
+                  break
+              }
+          }
+      }
+    
     @objc func gradeTextFieldDidChange(_ textField: UITextField) {
         print("Grade text field changed: \(textField.text ?? "nil")")
         if let text = textField.text, let grade = Double(text) {

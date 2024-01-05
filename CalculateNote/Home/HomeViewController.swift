@@ -11,14 +11,15 @@ import SideMenu
 class HomeViewController: UIViewController {
     
     var tableView: UITableView!
-    var studentList = [Students]()
-    var studentView = StudentsView()
-    var pageCount = 0
+    var homeTableViewCell = HomeTableViewCell()
     var squareData: SquareData?
+    var className: String?
+    var studentList: [StudentAndNotesModel] = []
+    var homeViewModel: HomeViewModel!
     
-    init(squareData: SquareData) {
-   
-        self.squareData = squareData
+    init(squareData: SquareData, className: String) {
+        self.className = squareData.className
+        self.homeViewModel = HomeViewModel(className: className)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,89 +27,55 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+//MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        loadStudents()
-        setupTableView()
-        createStudentList()
+        setupView()
         setTableView()
         setupTapGestureRecognizer()
-        view.backgroundColor = .systemMint
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.tintColor = .white
+        view.backgroundColor = Colors.appMainColor
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         loadStudents()
+        
         if studentList.isEmpty {
             createStudentList()
-            saveStudents()
         }
         
         tableView.reloadData()
     }
     
-    @objc func addTapped() {
-        let alertController = UIAlertController(title: "Sayfa İsmi", message: "Lütfen sayfa ismini girin", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Sayfa Adı"
-        }
-
-        let addAction = UIAlertAction(title: "Tamam", style: .default) { [weak self] _ in
-            guard let self = self, let textField = alertController.textFields?.first else { return }
-
-            let pageName = textField.text ?? "Sayfa \(self.pageCount)"
-            let newViewController = NewViewController()
-            newViewController.navigationItem.title = pageName
-            self.navigationController?.pushViewController(newViewController, animated: true)
-            self.pageCount += 1
-        }
-
-        let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
-        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
+//MARK: - Create Student List
     
-    private func setTableView() {
-        studentView.nameTextField.text = ""
-        studentView.gradeTextField1.text = ""
-        studentView.gradeTextField2.text = ""
-        studentView.gradeTextField3.text = ""
-    }
-    
-    private func saveStudents() {
-        do {
-            let encodedData = try JSONEncoder().encode(studentList)
-            UserDefaults.standard.set(encodedData, forKey: "onur")
-        } catch {
-            print("Verileri kaydederken bir hata oluştu: \(error.localizedDescription)")
-        }
-    }
-    
-    private func loadStudents() {
-        if let savedData = UserDefaults.standard.data(forKey: "onur"),
-           let loadedStudents = try? JSONDecoder().decode([Students].self, from: savedData) {
-            studentList = loadedStudents
-        }
-    }
-    
-    private func createStudentList() {
-        for _ in 1...40 {
-            let student = Students(name: "")
+    func createStudentList() {
+        var studentList: [StudentAndNotesModel] = []
+        for _ in 1...50 {
+            let student = StudentAndNotesModel(name: "")
             studentList.append(student)
         }
+        
+        self.studentList = studentList
+        tableView.reloadData()
     }
     
-    private func setupTableView() {
+//MARK: - Private Methods
+    
+    // Set View
+    private func setupView() {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(StudentsView.self, forCellReuseIdentifier: "StudentCell")
+        tableView.backgroundColor = Colors.appMainColor
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "StudentCell")
         view.addSubview(tableView)
+        
         
         tableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -118,39 +85,58 @@ class HomeViewController: UIViewController {
         }
         
         let calculateButton = UIButton(type: .system)
-        calculateButton.setTitle("Hesapla", for: .normal)
-        calculateButton.tintColor = .white
+        calculateButton.setTitle("Hesapla ve Kaydet", for: .normal)
+        calculateButton.tintColor = Colors.cellsColor
+        calculateButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         view.addSubview(calculateButton)
         
         calculateButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(-90)
+            make.bottom.equalTo(-30)
             make.height.equalTo(40)
-            make.width.equalTo(100)
+            make.width.equalTo(200)
         }
     }
     
-    @objc private func calculateButtonTapped() {
-        for (index, student) in studentList.enumerated() {
-            let grade1 = student.grades[0] * 0.5
-            let grade2 = student.grades[1] * 0.25
-            let grade3 = student.grades[2] * 0.25
-            
-            // Ortalamayı hesapla
-            let average = (grade1 + grade2 + grade3)
-            
-            // Her öğrencinin resultLabel'ına not ortalamasını yerleştir
-            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? StudentsView {
-                cell.updateResultLabel(withAverage: average)
-            }
-        }
-        saveStudents()
+    private func setTableView() {
+        homeTableViewCell.nameTextField.text = ""
+        homeTableViewCell.gradeTextField1.text = ""
+        homeTableViewCell.gradeTextField2.text = ""
+        homeTableViewCell.gradeTextField3.text = ""
+    }
+    
+    // Save and load business
+    private func saveStudents() {
+        homeViewModel.updateNamesAndNotesList(studentList)
+        homeViewModel.saveNamesAndNotes()
+    }
+    
+    private func loadStudents() {
+        homeViewModel.loadNamesAndNotes()
+        studentList = homeViewModel.getNamesAndNotes()
     }
     
     private func setupTapGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+//MARK: - @objc Methods
+    
+    @objc private func calculateButtonTapped() {
+        for (index, student) in studentList.enumerated() {
+            let average = homeViewModel.calculateAverage(for: student)
+            
+            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
+                cell.updateResultLabel(withAverage: average)
+                cell.updateGradeTextFieldColors(cell.nameTextField)
+                cell.updateGradeTextFieldColors(cell.gradeTextField1)
+                cell.updateGradeTextFieldColors(cell.gradeTextField2)
+                cell.updateGradeTextFieldColors(cell.gradeTextField3)
+            }
+        }
+        saveStudents()
     }
     
     @objc
@@ -159,6 +145,8 @@ class HomeViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -166,7 +154,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! StudentsView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! HomeTableViewCell
         let student = studentList[indexPath.row]
         cell.student = student
         cell.nameTextField.delegate = cell
@@ -174,17 +162,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gradeTextField2.delegate = cell
         cell.gradeTextField3.delegate = cell
         cell.updateUI(with: student)
-        cell.updateResultLabel(withAverage: calculateAverage(for: student))
-        cell.backgroundColor = .systemMint
-   
+        cell.updateResultLabel(withAverage: homeViewModel.calculateAverage(for: student))
+        cell.backgroundColor = .clear
+        
         return cell
-    }
-    
-    func calculateAverage(for student: Students) -> Double {
-        let grade1 = student.grades[0] * 0.5
-        let grade2 = student.grades[1] * 0.25
-        let grade3 = student.grades[2] * 0.25
-        return (grade1 + grade2 + grade3)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

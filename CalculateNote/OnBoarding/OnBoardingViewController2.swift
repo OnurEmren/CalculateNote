@@ -8,22 +8,48 @@
 import UIKit
 
 class OnBoardingViewController2: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    let stackView = UIStackView()
+    let imageView = UIImageView()
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
+    
+    init(imageName: String, titleText: String, subtitleText: String) {
+        super.init(nibName: nil, bundle: nil)
+        imageView.image = UIImage(named: imageName)
+        titleLabel.text = titleText
+        subtitleLabel.text = subtitleText
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Colors.darkThemeColor
+        style()
+        layout()
+    }
+    
+    func style() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
 
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.textColor = Colors.cellsColor
+        
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.textColor = Colors.cellsColor
+        subtitleLabel.numberOfLines = 0
+    }
+    
+    func layout() {
+        let views = OnBoardingElements()
+        views.addImageView(imageView, withTitle: titleLabel, andSubtitle: subtitleLabel, to: view)
+    }
 }

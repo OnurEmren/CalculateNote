@@ -28,9 +28,15 @@ class OnBoardingElements {
         }
 
         subtitle.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.top).offset(30)
+            make.top.equalTo(title.snp.top).offset(47)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
             make.height.equalTo(100)
             make.centerX.equalToSuperview()
         }
+        
+        title.numberOfLines = 0
+        subtitle.numberOfLines = 0
+        subtitle.font = UIFont.systemFont(ofSize: 16)
     }
 }

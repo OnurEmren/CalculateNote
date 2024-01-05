@@ -7,18 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		462E477E2B473FB7004F43A0 /* SquareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E477D2B473FB7004F43A0 /* SquareViewModel.swift */; };
+		462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */; };
+		462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */; };
+		462E47852B474BA9004F43A0 /* OnBoardingViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */; };
+		462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */; };
+		462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47882B474CF7004F43A0 /* OnBoardingElements.swift */; };
+		4667542F2B3B2FF800543E44 /* SquareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667542E2B3B2FF800543E44 /* SquareData.swift */; };
+		4684FDC22B488442009C7965 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4684FDC12B488442009C7965 /* Lottie */; };
+		4684FDC62B4884EE009C7965 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 4684FDC32B4884EE009C7965 /* note.json */; };
+		4684FDC72B4884EE009C7965 /* fill.json in Resources */ = {isa = PBXBuildFile; fileRef = 4684FDC42B4884EE009C7965 /* fill.json */; };
+		4684FDC82B4884EE009C7965 /* calculate.json in Resources */ = {isa = PBXBuildFile; fileRef = 4684FDC52B4884EE009C7965 /* calculate.json */; };
+		4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684FDCB2B48AC5C009C7965 /* OnBoardingViewController4.swift */; };
+		468550D92B446E8E00C213F8 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550D82B446E8E00C213F8 /* HomeTableViewCell.swift */; };
+		468550DB2B4497B500C213F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550DA2B4497B500C213F8 /* HomeViewModel.swift */; };
+		468550DD2B44B49300C213F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550DC2B44B49300C213F8 /* Colors.swift */; };
+		4692FD162B39E5A800D67A89 /* SquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692FD152B39E5A800D67A89 /* SquareViewController.swift */; };
+		4692FD182B39E5B000D67A89 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692FD172B39E5B000D67A89 /* SquareView.swift */; };
+		46AD95A92B46040A00AC29AD /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AD95A82B46040A00AC29AD /* SquareCollectionViewCell.swift */; };
 		46C970AF2B03C29200B8D90A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970AE2B03C29200B8D90A /* AppDelegate.swift */; };
 		46C970B12B03C29200B8D90A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970B02B03C29200B8D90A /* SceneDelegate.swift */; };
 		46C970B32B03C29200B8D90A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970B22B03C29200B8D90A /* HomeViewController.swift */; };
 		46C970B82B03C29400B8D90A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C970B72B03C29400B8D90A /* Assets.xcassets */; };
 		46C970BB2B03C29400B8D90A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C970B92B03C29400B8D90A /* LaunchScreen.storyboard */; };
 		46C970C42B03C4A600B8D90A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970C32B03C4A600B8D90A /* SnapKit */; };
-		46C970C62B03C4D100B8D90A /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C52B03C4D100B8D90A /* Students.swift */; };
-		46C970C82B03C59700B8D90A /* StudentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C72B03C59700B8D90A /* StudentsView.swift */; };
-		46C970CA2B04D51600B8D90A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C92B04D51600B8D90A /* NotesViewController.swift */; };
+		46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */; };
+		46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D32B0671AE00B8D90A /* SideMenu */; };
+		46C970DA2B067D4900B8D90A /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D92B067D4900B8D90A /* CoreXLSX */; };
+		46FB3ACD2B0D05EA0097D56F /* SwiftXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		462E477D2B473FB7004F43A0 /* SquareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareViewModel.swift; sourceTree = "<group>"; };
+		462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController1.swift; sourceTree = "<group>"; };
+		462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController2.swift; sourceTree = "<group>"; };
+		462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController3.swift; sourceTree = "<group>"; };
+		462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOnBoardingViewController.swift; sourceTree = "<group>"; };
+		462E47882B474CF7004F43A0 /* OnBoardingElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingElements.swift; sourceTree = "<group>"; };
+		4667542E2B3B2FF800543E44 /* SquareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareData.swift; sourceTree = "<group>"; };
+		4684FDC32B4884EE009C7965 /* note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; };
+		4684FDC42B4884EE009C7965 /* fill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fill.json; sourceTree = "<group>"; };
+		4684FDC52B4884EE009C7965 /* calculate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calculate.json; sourceTree = "<group>"; };
+		4684FDCB2B48AC5C009C7965 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
+		468550D82B446E8E00C213F8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		468550DA2B4497B500C213F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		468550DC2B44B49300C213F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4692FD152B39E5A800D67A89 /* SquareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareViewController.swift; sourceTree = "<group>"; };
+		4692FD172B39E5B000D67A89 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		46AD95A82B46040A00AC29AD /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		46C970AB2B03C29200B8D90A /* CalculateNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculateNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C970AE2B03C29200B8D90A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46C970B02B03C29200B8D90A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,9 +62,7 @@
 		46C970B72B03C29400B8D90A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46C970BA2B03C29400B8D90A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46C970BC2B03C29400B8D90A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46C970C52B03C4D100B8D90A /* Students.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
-		46C970C72B03C59700B8D90A /* StudentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsView.swift; sourceTree = "<group>"; };
-		46C970C92B04D51600B8D90A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAndNotesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,18 +70,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4684FDC22B488442009C7965 /* Lottie in Frameworks */,
+				46C970DA2B067D4900B8D90A /* CoreXLSX in Frameworks */,
+				46FB3ACD2B0D05EA0097D56F /* SwiftXLSX in Frameworks */,
 				46C970C42B03C4A600B8D90A /* SnapKit in Frameworks */,
+				46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462E477F2B474AC7004F43A0 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */,
+				462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */,
+				462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */,
+				4684FDCB2B48AC5C009C7965 /* OnBoardingViewController4.swift */,
+				462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */,
+				462E47882B474CF7004F43A0 /* OnBoardingElements.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		463ED7442B431ADB004C110C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4684FDC52B4884EE009C7965 /* calculate.json */,
+				4684FDC42B4884EE009C7965 /* fill.json */,
+				4684FDC32B4884EE009C7965 /* note.json */,
+				46C970AE2B03C29200B8D90A /* AppDelegate.swift */,
+				46C970B02B03C29200B8D90A /* SceneDelegate.swift */,
+				46C970B72B03C29400B8D90A /* Assets.xcassets */,
+				46C970B92B03C29400B8D90A /* LaunchScreen.storyboard */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		463ED7452B431D92004C110C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				468550D82B446E8E00C213F8 /* HomeTableViewCell.swift */,
+				46C970B22B03C29200B8D90A /* HomeViewController.swift */,
+				468550DA2B4497B500C213F8 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4667542D2B3B2FE400543E44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */,
+				4667542E2B3B2FF800543E44 /* SquareData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		468550D72B446E8100C213F8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				468550DC2B44B49300C213F8 /* Colors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4692FD142B39E59900D67A89 /* Square */ = {
+			isa = PBXGroup;
+			children = (
+				4692FD152B39E5A800D67A89 /* SquareViewController.swift */,
+				4692FD172B39E5B000D67A89 /* SquareView.swift */,
+				46AD95A82B46040A00AC29AD /* SquareCollectionViewCell.swift */,
+				462E477D2B473FB7004F43A0 /* SquareViewModel.swift */,
+			);
+			path = Square;
+			sourceTree = "<group>";
+		};
 		46C970A22B03C29200B8D90A = {
 			isa = PBXGroup;
 			children = (
 				46C970AD2B03C29200B8D90A /* CalculateNote */,
 				46C970AC2B03C29200B8D90A /* Products */,
+				46C970D52B067CBB00B8D90A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,17 +166,22 @@
 		46C970AD2B03C29200B8D90A /* CalculateNote */ = {
 			isa = PBXGroup;
 			children = (
-				46C970AE2B03C29200B8D90A /* AppDelegate.swift */,
-				46C970B02B03C29200B8D90A /* SceneDelegate.swift */,
-				46C970B22B03C29200B8D90A /* HomeViewController.swift */,
-				46C970B72B03C29400B8D90A /* Assets.xcassets */,
-				46C970B92B03C29400B8D90A /* LaunchScreen.storyboard */,
+				462E477F2B474AC7004F43A0 /* OnBoarding */,
+				463ED7452B431D92004C110C /* Home */,
+				4692FD142B39E59900D67A89 /* Square */,
+				4667542D2B3B2FE400543E44 /* Model */,
+				468550D72B446E8100C213F8 /* Utils */,
+				463ED7442B431ADB004C110C /* Others */,
 				46C970BC2B03C29400B8D90A /* Info.plist */,
-				46C970C52B03C4D100B8D90A /* Students.swift */,
-				46C970C72B03C59700B8D90A /* StudentsView.swift */,
-				46C970C92B04D51600B8D90A /* NotesViewController.swift */,
 			);
 			path = CalculateNote;
+			sourceTree = "<group>";
+		};
+		46C970D52B067CBB00B8D90A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +202,10 @@
 			name = CalculateNote;
 			packageProductDependencies = (
 				46C970C32B03C4A600B8D90A /* SnapKit */,
+				46C970D32B0671AE00B8D90A /* SideMenu */,
+				46C970D92B067D4900B8D90A /* CoreXLSX */,
+				46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */,
+				4684FDC12B488442009C7965 /* Lottie */,
 			);
 			productName = CalculateNote;
 			productReference = 46C970AB2B03C29200B8D90A /* CalculateNote.app */;
@@ -124,6 +237,11 @@
 			mainGroup = 46C970A22B03C29200B8D90A;
 			packageReferences = (
 				46C970C22B03C4A600B8D90A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				46C970CB2B066F3D00B8D90A /* XCRemoteSwiftPackageReference "CSV" */,
+				46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */,
+				46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */,
+				46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */,
+				4684FDC02B488442009C7965 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 46C970AC2B03C29200B8D90A /* Products */;
 			projectDirPath = "";
@@ -139,7 +257,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4684FDC72B4884EE009C7965 /* fill.json in Resources */,
+				4684FDC62B4884EE009C7965 /* note.json in Resources */,
 				46C970BB2B03C29400B8D90A /* LaunchScreen.storyboard in Resources */,
+				4684FDC82B4884EE009C7965 /* calculate.json in Resources */,
 				46C970B82B03C29400B8D90A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,11 +273,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C970B32B03C29200B8D90A /* HomeViewController.swift in Sources */,
+				468550DD2B44B49300C213F8 /* Colors.swift in Sources */,
 				46C970AF2B03C29200B8D90A /* AppDelegate.swift in Sources */,
-				46C970CA2B04D51600B8D90A /* NotesViewController.swift in Sources */,
 				46C970B12B03C29200B8D90A /* SceneDelegate.swift in Sources */,
-				46C970C82B03C59700B8D90A /* StudentsView.swift in Sources */,
-				46C970C62B03C4D100B8D90A /* Students.swift in Sources */,
+				468550DB2B4497B500C213F8 /* HomeViewModel.swift in Sources */,
+				462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */,
+				462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */,
+				4692FD162B39E5A800D67A89 /* SquareViewController.swift in Sources */,
+				4692FD182B39E5B000D67A89 /* SquareView.swift in Sources */,
+				468550D92B446E8E00C213F8 /* HomeTableViewCell.swift in Sources */,
+				4667542F2B3B2FF800543E44 /* SquareData.swift in Sources */,
+				462E477E2B473FB7004F43A0 /* SquareViewModel.swift in Sources */,
+				46AD95A92B46040A00AC29AD /* SquareCollectionViewCell.swift in Sources */,
+				46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */,
+				462E47852B474BA9004F43A0 /* OnBoardingViewController3.swift in Sources */,
+				462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */,
+				4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */,
+				462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +504,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4684FDC02B488442009C7965 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.4;
+			};
+		};
 		46C970C22B03C4A600B8D90A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -379,13 +520,65 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		46C970CB2B066F3D00B8D90A /* XCRemoteSwiftPackageReference "CSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yaslab/CSV.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.3;
+			};
+		};
+		46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/CoreXLSX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.2;
+			};
+		};
+		46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/3973770/SwiftXLSX";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4684FDC12B488442009C7965 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4684FDC02B488442009C7965 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		46C970C32B03C4A600B8D90A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 46C970C22B03C4A600B8D90A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		46C970D32B0671AE00B8D90A /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+		46C970D92B067D4900B8D90A /* CoreXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */;
+			productName = CoreXLSX;
+		};
+		46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */;
+			productName = SwiftXLSX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
