@@ -21,7 +21,7 @@ class ManageOnBoardingViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemCyan
+        view.backgroundColor = Colors.darkThemeColor
         setup()
         style()
         layout()
