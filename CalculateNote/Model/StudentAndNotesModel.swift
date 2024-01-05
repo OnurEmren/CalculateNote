@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Students: Codable {
+class StudentAndNotesModel: Codable {
     var name: String
     var grades: [Double]
 
