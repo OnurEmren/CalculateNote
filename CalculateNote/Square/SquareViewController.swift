@@ -75,7 +75,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     //Alert Dialog
     private func showAddSquareAlert() {
-        let alert = UIAlertController(title: "Kare Ekleyin", message: "Lütfen bir kare ekleyin", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Kare Ekleyin", message: "Lütfen bir sınıf ekleyin", preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Ekle", style: .default) { [weak self] _ in
             self?.addButtonTapped()
         }
@@ -124,9 +124,14 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         
         let addAction = UIAlertAction(title: "Tamam", style: .default) { [weak self] _ in
-            if let className = alert.textFields?.first?.text {
+            if let className = alert.textFields?.first?.text, !className.isEmpty {
                 self?.addSquare(with: className)
                 self?.collectionView.reloadData()
+            } else {
+                let errorAlert = UIAlertController(title: "Hata", message: "Lütfen bir sınıf adı girin", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+                errorAlert.addAction(okAction)
+                self?.present(errorAlert, animated: true, completion: nil)
             }
         }
         

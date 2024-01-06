@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SideMenu
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,14 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
 
         if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
-            // Uygulama ilk kez açılıyorsa, onboarding ekranını göster
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
             showOnboardingScreen()
         } else {
-            // Uygulama daha önce açıldıysa, ana ekranı göster
             showMainScreen()
         }
-        
         return true
     }
     

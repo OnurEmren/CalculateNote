@@ -37,6 +37,6 @@ class OnBoardingElements {
         
         title.numberOfLines = 0
         subtitle.numberOfLines = 0
-        subtitle.font = UIFont.systemFont(ofSize: 16)
+        subtitle.font = UIFont.systemFont(ofSize: 18)
     }
 }

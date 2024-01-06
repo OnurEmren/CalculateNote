@@ -80,7 +80,7 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         contentView.addSubview(gradeTextField3)
         
         gradeTextFields = [gradeTextField1, gradeTextField2, gradeTextField3]
-
+        
         for (index, gradeTextField) in gradeTextFields.enumerated() {
             gradeTextField.tag = index
             gradeTextField.addTarget(self, action: #selector(gradeTextFieldDidChange(_:)), for: .editingChanged)
@@ -97,14 +97,6 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             make.bottom.equalToSuperview().offset(-5)
         }
     }
-    
-    func updateUI(with student: StudentAndNotesModel) {
-          nameTextField.text = student.name
-          gradeTextField1.text = "\(student.grades[0])"
-          gradeTextField2.text = "\(student.grades[1])"
-          gradeTextField3.text = "\(student.grades[2])"
-
-      }
     
     func setupConstraints() {
         nameTextField.snp.makeConstraints { (make) in
@@ -134,6 +126,13 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
+    func updateUI(with student: StudentAndNotesModel) {
+        nameTextField.text = student.name
+        gradeTextField1.text = "\(student.grades[0])"
+        gradeTextField2.text = "\(student.grades[1])"
+        gradeTextField3.text = "\(student.grades[2])"
+    }
+    
     func updateResultLabel(withAverage average: Double) {
         resultLabel.text = "Ortalama: \(String(format: "%.2f", average))"
         resultLabel.textColor = average < 50.0 ? .red : Colors.darkThemeColor
@@ -150,28 +149,28 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             if !textField.isEditing {
                 textField.textColor = .white
                 textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-
+                
             }
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-          if let _ = getIndexPath(for: textField), let text = textField.text {
-              switch textField {
-              case nameTextField:
-                  student?.name = text
-                  updateGradeTextFieldColors(textField)
-              case gradeTextField1, gradeTextField2, gradeTextField3:
-                  if let grade = Double(text) {
-                      let index = textField.tag
-                      student?.grades[index] = grade
-                  }
-                  updateGradeTextFieldColors(textField)
-              default:
-                  break
-              }
-          }
-      }
+        if let _ = getIndexPath(for: textField), let text = textField.text {
+            switch textField {
+            case nameTextField:
+                student?.name = text
+                updateGradeTextFieldColors(textField)
+            case gradeTextField1, gradeTextField2, gradeTextField3:
+                if let grade = Double(text) {
+                    let index = textField.tag
+                    student?.grades[index] = grade
+                }
+                updateGradeTextFieldColors(textField)
+            default:
+                break
+            }
+        }
+    }
     
     @objc func gradeTextFieldDidChange(_ textField: UITextField) {
         print("Grade text field changed: \(textField.text ?? "nil")")

@@ -25,7 +25,6 @@ class ManageOnBoardingViewController: UIPageViewController {
         setup()
         style()
         layout()
-        
     }
 }
 
@@ -39,7 +38,7 @@ extension ManageOnBoardingViewController {
         
         let page1 = OnBoardingViewController1(imageName: "page",
                                               titleText: "Kolayca not hesapla!",
-                                              subtitleText: "Dil öğretmenlerimiz için geliştirildi.")
+                                              subtitleText: "Yazma,konuşma ve dinleme sınavlarını tek tuşla hesapla.")
         
         let page2 = OnBoardingViewController2(imageName: "page",
                                               titleText: "Yeni sınıf oluşturun",
@@ -51,7 +50,7 @@ extension ManageOnBoardingViewController {
         
         let page4 = OnBoardingViewController4(imageName: "page",
                                               titleText: "Not alanları",
-                                              subtitleText: "1. Yazılı 2. Dinleme 3. Konuşma Sınavı")
+                                              subtitleText: "1. Yazılı Sınav Not Alanı 2. Dinleme Sınavı Not Alanı 3. Konuşma Sınavı Alanı")
         
         
         pages.append(page1)
