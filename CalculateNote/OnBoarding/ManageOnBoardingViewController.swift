@@ -77,7 +77,6 @@ extension ManageOnBoardingViewController {
         nextButton.setTitleColor(.systemBlue, for: .normal)
         nextButton.setTitle("Next", for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
-        
     }
     
     @objc

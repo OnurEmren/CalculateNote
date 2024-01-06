@@ -40,10 +40,10 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     func setupUI() {
         nameTextField = UITextField()
         nameTextField.borderStyle = .roundedRect
-        nameTextField.layer.borderWidth = 1.5
-        nameTextField.layer.cornerRadius = 10
+        nameTextField.layer.borderWidth = Constants.textFieldsBorder
+        nameTextField.layer.cornerRadius = Constants.cornerRadius
         nameTextField.layer.masksToBounds = true
-        nameTextField.font = UIFont.systemFont(ofSize: 18)
+        nameTextField.font = UIFont.systemFont(ofSize: Constants.labelFont)
         nameTextField.placeholder = "Öğrenci Adı"
         nameTextField.textColor = Colors.cellsColor
         nameTextField.backgroundColor = Colors.lightThemeColor
@@ -54,8 +54,8 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         gradeTextField1.placeholder = "Not 1"
         gradeTextField1.keyboardType = .numberPad
         gradeTextField1.textColor = Colors.darkThemeColor
-        gradeTextField1.layer.borderWidth = 1.5
-        gradeTextField1.layer.cornerRadius = 10
+        gradeTextField1.layer.borderWidth = Constants.textFieldsBorder
+        gradeTextField1.layer.cornerRadius = Constants.cornerRadius
         gradeTextField1.layer.masksToBounds = true
         contentView.addSubview(gradeTextField1)
         
@@ -64,8 +64,8 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         gradeTextField2.keyboardType = .numberPad
         gradeTextField2.placeholder = "Not 2"
         gradeTextField2.textColor = Colors.darkThemeColor
-        gradeTextField2.layer.borderWidth = 1.5
-        gradeTextField2.layer.cornerRadius = 10
+        gradeTextField2.layer.borderWidth = Constants.textFieldsBorder
+        gradeTextField2.layer.cornerRadius = Constants.cornerRadius
         gradeTextField2.layer.masksToBounds = true
         contentView.addSubview(gradeTextField2)
         
@@ -74,8 +74,8 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         gradeTextField3.keyboardType = .numberPad
         gradeTextField3.placeholder = "Not 3"
         gradeTextField3.textColor = Colors.darkThemeColor
-        gradeTextField3.layer.borderWidth = 1.5
-        gradeTextField3.layer.cornerRadius = 10
+        gradeTextField3.layer.borderWidth = Constants.textFieldsBorder
+        gradeTextField3.layer.cornerRadius = Constants.cornerRadius
         gradeTextField3.layer.masksToBounds = true
         contentView.addSubview(gradeTextField3)
         
@@ -89,40 +89,41 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         resultLabel = UILabel()
         resultLabel.textAlignment = .center
         resultLabel.textColor = .white
-        resultLabel.font = .boldSystemFont(ofSize: 18)
+        resultLabel.font = .boldSystemFont(ofSize: Constants.labelFont)
         contentView.addSubview(resultLabel)
         
         resultLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(Constants.resultLabelOffset)
         }
     }
     
     func setupConstraints() {
         nameTextField.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(Constants.nameTextFieldTop)
+            make.left.equalToSuperview().offset(Constants.textFieldsLeft)
+            make.width.equalTo(Constants.nameTextfieldWidth)
         }
         
         gradeTextField1.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(40)
-            make.width.equalTo(60)
-            make.height.equalTo(40)
+            make.top.equalToSuperview().offset(Constants.gradeTextFieldTop)
+            make.left.equalToSuperview().offset(Constants.textFieldsLeft)
+            make.width.equalTo(Constants.textFieldWidth)
+            make.height.equalTo(Constants.textFieldHeight)
         }
         
         gradeTextField2.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(110)
-            make.width.equalTo(60)
-            make.height.equalTo(40)
+            make.top.equalToSuperview().offset(Constants.gradeTextFieldTop)
+            make.left.equalTo(gradeTextField1.snp.left).offset(Constants.gradeTextFieldLeft)
+            make.width.equalTo(Constants.textFieldWidth)
+            make.height.equalTo(Constants.textFieldHeight)
         }
         
         gradeTextField3.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(180)
-            make.width.equalTo(60)
-            make.height.equalTo(40)
+            make.top.equalToSuperview().offset(Constants.gradeTextFieldTop)
+            make.left.equalTo(gradeTextField2.snp.left).offset(Constants.gradeTextFieldLeft)
+            make.width.equalTo(Constants.textFieldWidth)
+            make.height.equalTo(Constants.textFieldHeight)
         }
     }
     

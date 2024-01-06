@@ -36,9 +36,8 @@ class HomeViewController: UIViewController {
         setTableView()
         setupTapGestureRecognizer()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = Colors.darkThemeColor
         view.backgroundColor = Colors.appMainColor
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +47,6 @@ class HomeViewController: UIViewController {
         if studentList.isEmpty {
             createStudentList()
         }
-        
         tableView.reloadData()
     }
     
@@ -60,7 +58,6 @@ class HomeViewController: UIViewController {
             let student = StudentAndNotesModel(name: "")
             studentList.append(student)
         }
-        
         self.studentList = studentList
         tableView.reloadData()
     }

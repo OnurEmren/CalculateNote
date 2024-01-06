@@ -36,7 +36,6 @@ class SquareView: UIView {
     var classNameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
@@ -85,9 +84,9 @@ class SquareView: UIView {
         classNameLabel.textAlignment = .center
         classNameLabel.backgroundColor = Colors.darkThemeColor
         classNameLabel.textColor = Colors.lightThemeColor
-        classNameLabel.layer.cornerRadius = 10
+        classNameLabel.layer.cornerRadius = Constants.cornerRadius
         classNameLabel.layer.masksToBounds = true
-        classNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        classNameLabel.font = UIFont.systemFont(ofSize: Constants.labelFont, weight: .bold)
         classNameLabel.numberOfLines = 0
         classNameLabel.alpha = 1.0
         classNameLabel.sizeToFit()
@@ -96,14 +95,14 @@ class SquareView: UIView {
         classNameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(30)
+            make.leading.trailing.equalToSuperview().inset(Constants.classNameLabelTrailing)
+            make.height.equalTo(Constants.classNameLabelHeight)
         }
     }
     
     private func setupView() {
         backgroundColor = Colors.appMainColor
-        layer.cornerRadius = 10
+        layer.cornerRadius = Constants.cornerRadius
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(tapGesture)
@@ -119,10 +118,10 @@ class SquareView: UIView {
         addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
-            make.trailing.equalToSuperview().offset(-5)
-            make.width.equalTo(40)
-            make.height.equalTo(20)
+            make.top.equalToSuperview().offset(Constants.deleteButtonTop)
+            make.trailing.equalToSuperview().offset(Constants.deleteButtonTrailing)
+            make.width.equalTo(Constants.deleteButtonWidth)
+            make.height.equalTo(Constants.deleteButtonHeight)
         }
     }
     
