@@ -150,7 +150,6 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             if !textField.isEditing {
                 textField.textColor = .white
                 textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-                
             }
         }
     }
@@ -180,7 +179,6 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             student?.grades[index] = grade
         }
     }
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""

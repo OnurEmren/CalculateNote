@@ -406,22 +406,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E35BA33-20C4-43D9-9A97-5B25CF70040A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/Square/SquareView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "deleteButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "55228DC9-2082-44A0-90E9-8984E609C4BD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -429,10 +413,10 @@
             filePath = "CalculateNote/Others/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "showOnboardingScreen()"
-            landmarkType = "7">
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "55228DC9-2082-44A0-90E9-8984E609C4BD - a693ff9f4ab57757"
@@ -573,8 +557,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "addButtonTapped()"
             landmarkType = "7">
             <Locations>
@@ -666,8 +650,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "addButtonTapped()"
             landmarkType = "7">
             <Locations>
@@ -729,8 +713,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "addButtonTapped()"
             landmarkType = "7">
             <Locations>

@@ -43,11 +43,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadStudents()
-        
         if studentList.isEmpty {
             createStudentList()
         }
-        tableView.reloadData()
     }
     
 //MARK: - Create Student List

@@ -30,8 +30,6 @@
 		46C970C42B03C4A600B8D90A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970C32B03C4A600B8D90A /* SnapKit */; };
 		46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */; };
 		46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D32B0671AE00B8D90A /* SideMenu */; };
-		46C970DA2B067D4900B8D90A /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D92B067D4900B8D90A /* CoreXLSX */; };
-		46FB3ACD2B0D05EA0097D56F /* SwiftXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,8 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4684FDC22B488442009C7965 /* Lottie in Frameworks */,
-				46C970DA2B067D4900B8D90A /* CoreXLSX in Frameworks */,
-				46FB3ACD2B0D05EA0097D56F /* SwiftXLSX in Frameworks */,
 				46C970C42B03C4A600B8D90A /* SnapKit in Frameworks */,
 				46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */,
 			);
@@ -158,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				462E477F2B474AC7004F43A0 /* OnBoarding */,
-				463ED7452B431D92004C110C /* Home */,
 				4692FD142B39E59900D67A89 /* Square */,
+				463ED7452B431D92004C110C /* Home */,
 				4667542D2B3B2FE400543E44 /* Model */,
 				468550D72B446E8100C213F8 /* Utils */,
 				463ED7442B431ADB004C110C /* Others */,
@@ -194,8 +190,6 @@
 			packageProductDependencies = (
 				46C970C32B03C4A600B8D90A /* SnapKit */,
 				46C970D32B0671AE00B8D90A /* SideMenu */,
-				46C970D92B067D4900B8D90A /* CoreXLSX */,
-				46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */,
 				4684FDC12B488442009C7965 /* Lottie */,
 			);
 			productName = CalculateNote;
@@ -228,10 +222,7 @@
 			mainGroup = 46C970A22B03C29200B8D90A;
 			packageReferences = (
 				46C970C22B03C4A600B8D90A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				46C970CB2B066F3D00B8D90A /* XCRemoteSwiftPackageReference "CSV" */,
 				46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */,
-				46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */,
-				46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */,
 				4684FDC02B488442009C7965 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 46C970AC2B03C29200B8D90A /* Products */;
@@ -510,36 +501,12 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		46C970CB2B066F3D00B8D90A /* XCRemoteSwiftPackageReference "CSV" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yaslab/CSV.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.3;
-			};
-		};
 		46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.5.0;
-			};
-		};
-		46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CoreOffice/CoreXLSX";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.14.2;
-			};
-		};
-		46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/3973770/SwiftXLSX";
-			requirement = {
-				branch = main;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -559,16 +526,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46C970CE2B06710E00B8D90A /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
-		};
-		46C970D92B067D4900B8D90A /* CoreXLSX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 46C970D82B067D4900B8D90A /* XCRemoteSwiftPackageReference "CoreXLSX" */;
-			productName = CoreXLSX;
-		};
-		46FB3ACC2B0D05EA0097D56F /* SwiftXLSX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 46FB3ACB2B0D05EA0097D56F /* XCRemoteSwiftPackageReference "SwiftXLSX" */;
-			productName = SwiftXLSX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

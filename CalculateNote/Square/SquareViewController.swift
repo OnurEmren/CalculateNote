@@ -25,6 +25,14 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         loadSavedPages()
         view.backgroundColor = Colors.darkThemeColor
         
+        let backgroundImageView = UIImageView(image: UIImage(named: "page"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.insertSubview(backgroundImageView, at: 0)
+        
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         // User must create a square
         if squareData.isEmpty || squareData.allSatisfy({ $0.className.isEmpty }) {
             showAddSquareAlert()
@@ -49,7 +57,6 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
         view.addSubview(collectionView)
         
-        // SnapKit kullanarak constraints ayarlamak
         collectionView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset((view.bounds.height - 300) / 2)
             make.left.equalToSuperview().offset(10)

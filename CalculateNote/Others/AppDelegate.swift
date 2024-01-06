@@ -16,10 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-      //  UINavigationBar.appearance().tintColor = UIColor.white
-
-//MARK: - App Scene Control.
-
+        
+        //MARK: - App Scene Control.
+        
         // if the user launched before the app, app should be go to MainScreen else, onBoarding Screen.
         if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")

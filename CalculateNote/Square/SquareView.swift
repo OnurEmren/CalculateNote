@@ -8,18 +8,14 @@
 import Foundation
 import UIKit
 
-protocol ReloadSquareData: AnyObject {
-    func reloadData()
-}
-
 class SquareView: UIView {
     
     var tapGesture: UITapGestureRecognizer!
     var delegate: SquareViewDelegate?
     var deleteButton: UIButton!
+    var classNameLabel: UILabel = UILabel()
+    var backgroundImage: UIImageView!
     var onTap: (() -> Void)?
-    var studentCount: Int = 0
-    var reloadCollectionViewDelegate: ReloadSquareData?
     
     var data: SquareData? {
         didSet {
@@ -33,11 +29,6 @@ class SquareView: UIView {
         }
     }
 
-    var classNameLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
     
     static var savedClassNames: [String] {
         return UserDefaults.standard.stringArray(forKey: "SavedClassNames") ?? []
@@ -62,12 +53,12 @@ class SquareView: UIView {
             }
         }
     }
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
         setupUI()
+        //setupBackgroundImage()
         setupDeleteButton()
     }
     
@@ -90,8 +81,8 @@ class SquareView: UIView {
         classNameLabel.numberOfLines = 0
         classNameLabel.alpha = 1.0
         classNameLabel.sizeToFit()
-        
         addSubview(classNameLabel)
+        
         classNameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
@@ -100,8 +91,20 @@ class SquareView: UIView {
         }
     }
     
+    private func setupBackgroundImage() {
+           backgroundImage = UIImageView(image: UIImage(named: "page")) // "backgroundImage" yerine kendi resminizin adını kullanın
+           backgroundImage.contentMode = .scaleAspectFill // İsteğe bağlı olarak uygun bir içerik modunu seçebilirsiniz
+           insertSubview(backgroundImage, at: 0)
+           
+           backgroundImage.snp.makeConstraints { make in
+               make.edges.equalToSuperview()
+           }
+       }
+    
     private func setupView() {
-        backgroundColor = Colors.appMainColor
+        backgroundColor = .clear
+        layer.borderWidth = 1.5
+        layer.borderColor = Colors.darkThemeColor.cgColor
         layer.cornerRadius = Constants.cornerRadius
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
