@@ -71,7 +71,6 @@ class SquareView: UIView, Coordinating {
     }
     
     private func setupUI() {
-        
         classNameLabel = UILabel()
         classNameLabel.textAlignment = .center
         classNameLabel.backgroundColor = Colors.darkThemeColor
@@ -121,7 +120,7 @@ class SquareView: UIView, Coordinating {
     
     @objc
     private func deleteButtonTapped() {
-        let alert = UIAlertController(title: "Emin misiniz?", message: "Bu kareyi silmek istediğinizden emin misiniz?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Emin misiniz?", message: "Bu sınıfı silmek istediğinizden emin misiniz?", preferredStyle: .alert)
         
         let deleteAction = UIAlertAction(title: "Evet", style: .destructive) { [weak self] _ in
             self?.deleteSquare()
@@ -145,6 +144,7 @@ class SquareView: UIView, Coordinating {
         }
         
         self.removeFromSuperview()
+        squareViewController?.collectionView.reloadData()
        
     }
 

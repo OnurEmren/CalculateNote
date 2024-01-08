@@ -8,8 +8,8 @@
 import UIKit
 import SideMenu
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
     var tableView: UITableView!
     var homeTableViewCell = HomeTableViewCell()
     var squareData: SquareData?
@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     var checkBoxView: CheckBoxView!
     var isChecked = false
 
-    init(squareData: SquareData, className: String) {
-        self.className = squareData.className
+    init(className: String) {
+        self.className = className
         self.homeViewModel = HomeViewModel(className: className)
         super.init(nibName: nil, bundle: nil)
     }

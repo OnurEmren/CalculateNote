@@ -10,7 +10,7 @@ import UIKit
 
 enum Event {
     case goToSquareViewController
-    case goToClassroom (SquareData: SquareData, className: String)
+    case goToClassroom (className: String)
     case goToSettings
    
 }
@@ -19,6 +19,7 @@ protocol Coordinator: AnyObject {
     var navigationController: UINavigationController? { get set }
     func eventOccured(with type: Event)
     func start()
+    func onBoardingStart()
 }
 
 protocol Coordinating {

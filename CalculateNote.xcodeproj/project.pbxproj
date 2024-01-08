@@ -34,6 +34,7 @@
 		46C970C42B03C4A600B8D90A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970C32B03C4A600B8D90A /* SnapKit */; };
 		46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */; };
 		46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D32B0671AE00B8D90A /* SideMenu */; };
+		46D098102B4C8A4E0013F495 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D0980F2B4C8A4E0013F495 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		46C970BA2B03C29400B8D90A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46C970BC2B03C29400B8D90A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAndNotesModel.swift; sourceTree = "<group>"; };
+		46D0980F2B4C8A4E0013F495 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				464460642B4C2B030056E77C /* SettingsViewController.swift */,
+				46D0980F2B4C8A4E0013F495 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4644606B2B4C2C900056E77C /* AppCoordinator.swift in Sources */,
+				46D098102B4C8A4E0013F495 /* SettingsView.swift in Sources */,
 				46C970B32B03C29200B8D90A /* HomeViewController.swift in Sources */,
 				468550DD2B44B49300C213F8 /* Colors.swift in Sources */,
 				46C970AF2B03C29200B8D90A /* AppDelegate.swift in Sources */,

@@ -95,7 +95,6 @@ extension ManageOnBoardingViewController {
     @objc
     private func nextTapped(_ sender: UIButton) {
         pageControl.currentPage += 1
-        coordinator?.eventOccured(with: .goToSquareViewController)
         goToNextPage()
     }
     
@@ -114,8 +113,9 @@ extension ManageOnBoardingViewController {
     }
     
     private func goToSpecificPage(index: Int, ofViewControllers pages: [UIViewController]) {
-        let vc = SquareViewController()
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = SquareViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.eventOccured(with: .goToSquareViewController)
     }
     
     private func layout() {

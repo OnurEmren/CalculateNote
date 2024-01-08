@@ -29,6 +29,9 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.backgroundColor = Colors.darkThemeColor
         squareView.coordinator = coordinator
         
+     
+
+        
         let backgroundImageView = UIImageView(image: UIImage(named: "page"))
         backgroundImageView.contentMode = .scaleAspectFill
         view.insertSubview(backgroundImageView, at: 0)
@@ -85,18 +88,13 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     private func setupSettingsButton() {
-        settingsButton = UIButton(type: .system)
-        settingsButton.setTitle("Ayarlar", for: .normal)
+        let settingsButton = UIBarButtonItem(
+            title: "Ayarlar",
+            style: .plain,
+            target: self,
+            action: #selector(settingsButtonTapped))
+        navigationItem.rightBarButtonItem = settingsButton
         settingsButton.tintColor = Colors.darkThemeColor
-        settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        view.addSubview(settingsButton)
-        
-        settingsButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
-            make.centerX.equalToSuperview().offset(-150)
-        }
     }
     
     //Alert Dialog
@@ -153,6 +151,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
             if let className = alert.textFields?.first?.text, !className.isEmpty {
                 self?.addSquare(with: className)
                 self?.collectionView.reloadData()
+                self?.coordinator?.eventOccured(with: .goToClassroom(className: className))
             } else {
                 let errorAlert = UIAlertController(title: "Hata", message: "Lütfen bir sınıf adı girin", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
@@ -173,8 +172,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @objc
     private func settingsButtonTapped() {
-        let vc = SettingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.eventOccured(with: .goToSettings)
     }
     
     @objc
@@ -205,8 +203,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
             selectedSquareIndex = indexPath.item
             squareData[selectedSquareIndex!].className = className
             let selectedSquareData = squareData[selectedSquareIndex!]
-            let homeViewController = HomeViewController(squareData: selectedSquareData, className: selectedSquareData.className)
-            navigationController?.pushViewController(homeViewController, animated: true)
+            coordinator?.eventOccured(with: .goToClassroom(className: selectedSquareData.className))
         }
     }
     

@@ -11,6 +11,8 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     var navigationController: UINavigationController?
+    private var squareData: SquareData?
+    private var className: String = ""
     
     func eventOccured(with type: Event) {
         switch type {
@@ -18,20 +20,27 @@ class AppCoordinator: Coordinator {
             let squareVC = SquareViewController()
             navigationController?.pushViewController(squareVC, animated: true)
             
-        case .goToClassroom(let squareData, let className):
-            let classroomController = HomeViewController(squareData: squareData, className: className)
+        case .goToClassroom(let className):
+            let classroomController = HomeViewController(className: className)
             navigationController?.pushViewController(classroomController, animated: true)
             
         case .goToSettings:
             let settingsVC = SettingsViewController()
+            settingsVC.coordinator = self
             navigationController?.pushViewController(settingsVC, animated: true)
         }
     }
     
     func start() {
+        let squareViewController = SquareViewController()
+        squareViewController.coordinator = self
+        navigationController?.setViewControllers([squareViewController], animated: false)
+        
+    }
+    
+    func onBoardingStart() {
         let onBoardingVC = ManageOnBoardingViewController()
         onBoardingVC.coordinator = self
         navigationController?.setViewControllers([onBoardingVC], animated: false)
-
     }
 }
