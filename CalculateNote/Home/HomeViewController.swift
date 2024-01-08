@@ -16,7 +16,9 @@ class HomeViewController: UIViewController {
     var className: String?
     var studentList: [StudentAndNotesModel] = []
     var homeViewModel: HomeViewModel!
-    
+    var checkBoxView: CheckBoxView!
+    var isChecked = false
+
     init(squareData: SquareData, className: String) {
         self.className = squareData.className
         self.homeViewModel = HomeViewModel(className: className)
@@ -33,6 +35,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        setupCheckBoxView()
         setTableView()
         setupTapGestureRecognizer()
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -73,7 +76,7 @@ class HomeViewController: UIViewController {
         
         
         tableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(150)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-50)
@@ -99,6 +102,33 @@ class HomeViewController: UIViewController {
         homeTableViewCell.gradeTextField1.text = ""
         homeTableViewCell.gradeTextField2.text = ""
         homeTableViewCell.gradeTextField3.text = ""
+    }
+    
+    private func setupCheckBoxView() {
+         checkBoxView = CheckBoxView()
+         checkBoxView.onCheckBoxTapped = { [weak self] checkBox in
+             self?.handleCheckBoxTapped(checkBox)
+         }
+         view.addSubview(checkBoxView)
+
+         checkBoxView.snp.makeConstraints { make in
+             make.leading.equalToSuperview().offset(32)
+             make.top.equalToSuperview().offset(110)
+             make.height.equalTo(30)
+         }
+     }
+    
+    private func handleCheckBoxTapped(_ checkBox: UIButton) {
+        // CheckBox durumunu kullanarak işlemleri gerçekleştir
+        isChecked = !isChecked
+       // enableTextFields(for: checkBoxTitle)
+
+        let checkBoxTitle = checkBox.titleLabel?.text ?? ""
+        for (index, _) in studentList.enumerated() {
+            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
+                cell.enableTextFields(for: checkBoxTitle)
+            }
+        }
     }
     
     // Save and load business

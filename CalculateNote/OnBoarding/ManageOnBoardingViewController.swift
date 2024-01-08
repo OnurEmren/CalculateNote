@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ManageOnBoardingViewController: UIPageViewController {
+class ManageOnBoardingViewController: UIPageViewController, Coordinating {
+    var coordinator: Coordinator?
     var pages = [UIViewController]()
     let pageControl = UIPageControl()
     let initialPage = 0
@@ -94,6 +95,7 @@ extension ManageOnBoardingViewController {
     @objc
     private func nextTapped(_ sender: UIButton) {
         pageControl.currentPage += 1
+        coordinator?.eventOccured(with: .goToSquareViewController)
         goToNextPage()
     }
     

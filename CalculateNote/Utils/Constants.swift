@@ -10,11 +10,11 @@ import Foundation
 enum Constants {
     //NameTextField Constants
     static let nameTextFieldTop = 10
-    static let nameTextfieldWidth = 200
+    static let nameTextfieldWidth = 250
     
     //gradeTextField Constants
     static let gradeTextFieldTop = 50
-    static let gradeTextFieldLeft = 80
+    static let gradeTextFieldLeft = 90
     
     //General TextFields Constants
     static let textFieldHeight = 40

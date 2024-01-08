@@ -15,6 +15,7 @@ protocol SquareViewDelegate: AnyObject {
 
 protocol GoToDetail: AnyObject {
     func squareTappedForCell(_ cell: SquareCollectionViewCell, with className: String)
+    func updateCollectionView()
 }
 
 class SquareCollectionViewCell: UICollectionViewCell {
@@ -46,8 +47,13 @@ class SquareCollectionViewCell: UICollectionViewCell {
     private func setupSquareView() {
         squareView = SquareView(frame: bounds)
         squareView.delegate = delegate
+        squareView.goToDetailDelegate = goToDetailDelegate
         squareView.isUserInteractionEnabled = true
         addSubview(squareView)
+        
+        squareView.onDelete = { [weak self] in
+            self?.goToDetailDelegate?.updateCollectionView()
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(squareTapped))
         squareView.addGestureRecognizer(tapGesture)

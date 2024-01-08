@@ -8,11 +8,13 @@
 import UIKit
 
 
-class SquareViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GoToDetail {
+class SquareViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GoToDetail, Coordinating {
+    var coordinator: Coordinator?
     private let squareView = SquareView()
-    private var collectionView: UICollectionView!
-    private var addButton: UIButton!
     private var squareData: [SquareData] = []
+    private var settingsButton = UIButton()
+    var collectionView: UICollectionView!
+    private var addButton: UIButton!
     private var selectedSquareIndex: Int?
     private var className: String?
     private let squareViewControllerKey = "SquareViewControllerKey"
@@ -23,7 +25,9 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupCollectionView()
         setupAddButton()
         loadSavedPages()
+        setupSettingsButton()
         view.backgroundColor = Colors.darkThemeColor
+        squareView.coordinator = coordinator
         
         let backgroundImageView = UIImageView(image: UIImage(named: "page"))
         backgroundImageView.contentMode = .scaleAspectFill
@@ -40,7 +44,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
 //MARK: - Private Methods
-    
+
     //Setup Views
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -68,7 +72,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     private func setupAddButton() {
         addButton = UIButton(type: .system)
         addButton.setTitle("Ekle", for: .normal)
-        addButton.tintColor = .white
+        addButton.tintColor = Colors.darkThemeColor
         addButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
 
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
@@ -77,6 +81,21 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         addButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func setupSettingsButton() {
+        settingsButton = UIButton(type: .system)
+        settingsButton.setTitle("Ayarlar", for: .normal)
+        settingsButton.tintColor = Colors.darkThemeColor
+        settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        view.addSubview(settingsButton)
+        
+        settingsButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.centerX.equalToSuperview().offset(-150)
         }
     }
     
@@ -153,6 +172,12 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @objc
+    private func settingsButtonTapped() {
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
     private func addSquare(with className: String){
         let newSquareData = SquareData(className: className)
         squareData.append(newSquareData)
@@ -182,6 +207,12 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
             let selectedSquareData = squareData[selectedSquareIndex!]
             let homeViewController = HomeViewController(squareData: selectedSquareData, className: selectedSquareData.className)
             navigationController?.pushViewController(homeViewController, animated: true)
+        }
+    }
+    
+    func updateCollectionView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
         }
     }
 }

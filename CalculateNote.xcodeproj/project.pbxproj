@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		460C035B2B49D0C00089AA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C035A2B49D0C00089AA68 /* Constants.swift */; };
+		462BC3F72B4B43150079C235 /* ChechBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BC3F62B4B43150079C235 /* ChechBoxView.swift */; };
 		462E477E2B473FB7004F43A0 /* SquareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E477D2B473FB7004F43A0 /* SquareViewModel.swift */; };
 		462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */; };
 		462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */; };
 		462E47852B474BA9004F43A0 /* OnBoardingViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */; };
 		462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */; };
 		462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47882B474CF7004F43A0 /* OnBoardingElements.swift */; };
+		464460652B4C2B030056E77C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464460642B4C2B030056E77C /* SettingsViewController.swift */; };
+		464460692B4C2C3E0056E77C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464460682B4C2C3E0056E77C /* Coordinator.swift */; };
+		4644606B2B4C2C900056E77C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4644606A2B4C2C900056E77C /* AppCoordinator.swift */; };
 		4667542F2B3B2FF800543E44 /* SquareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667542E2B3B2FF800543E44 /* SquareData.swift */; };
 		4684FDC22B488442009C7965 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4684FDC12B488442009C7965 /* Lottie */; };
 		4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684FDCB2B48AC5C009C7965 /* OnBoardingViewController4.swift */; };
@@ -34,12 +38,16 @@
 
 /* Begin PBXFileReference section */
 		460C035A2B49D0C00089AA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		462BC3F62B4B43150079C235 /* ChechBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChechBoxView.swift; sourceTree = "<group>"; };
 		462E477D2B473FB7004F43A0 /* SquareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareViewModel.swift; sourceTree = "<group>"; };
 		462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController1.swift; sourceTree = "<group>"; };
 		462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController2.swift; sourceTree = "<group>"; };
 		462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController3.swift; sourceTree = "<group>"; };
 		462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOnBoardingViewController.swift; sourceTree = "<group>"; };
 		462E47882B474CF7004F43A0 /* OnBoardingElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingElements.swift; sourceTree = "<group>"; };
+		464460642B4C2B030056E77C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		464460682B4C2C3E0056E77C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4644606A2B4C2C900056E77C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4667542E2B3B2FF800543E44 /* SquareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareData.swift; sourceTree = "<group>"; };
 		4684FDCB2B48AC5C009C7965 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		468550D82B446E8E00C213F8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,8 +108,26 @@
 				468550D82B446E8E00C213F8 /* HomeTableViewCell.swift */,
 				46C970B22B03C29200B8D90A /* HomeViewController.swift */,
 				468550DA2B4497B500C213F8 /* HomeViewModel.swift */,
+				462BC3F62B4B43150079C235 /* ChechBoxView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		464460662B4C2B100056E77C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				464460642B4C2B030056E77C /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		464460672B4C2C260056E77C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				464460682B4C2C3E0056E77C /* Coordinator.swift */,
+				4644606A2B4C2C900056E77C /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		4667542D2B3B2FE400543E44 /* Model */ = {
@@ -126,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				4692FD152B39E5A800D67A89 /* SquareViewController.swift */,
-				4692FD172B39E5B000D67A89 /* SquareView.swift */,
 				46AD95A82B46040A00AC29AD /* SquareCollectionViewCell.swift */,
+				4692FD172B39E5B000D67A89 /* SquareView.swift */,
 				462E477D2B473FB7004F43A0 /* SquareViewModel.swift */,
 			);
 			path = Square;
@@ -153,6 +179,8 @@
 		46C970AD2B03C29200B8D90A /* CalculateNote */ = {
 			isa = PBXGroup;
 			children = (
+				464460672B4C2C260056E77C /* Coordinator */,
+				464460662B4C2B100056E77C /* Settings */,
 				462E477F2B474AC7004F43A0 /* OnBoarding */,
 				4692FD142B39E59900D67A89 /* Square */,
 				463ED7452B431D92004C110C /* Home */,
@@ -251,10 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4644606B2B4C2C900056E77C /* AppCoordinator.swift in Sources */,
 				46C970B32B03C29200B8D90A /* HomeViewController.swift in Sources */,
 				468550DD2B44B49300C213F8 /* Colors.swift in Sources */,
 				46C970AF2B03C29200B8D90A /* AppDelegate.swift in Sources */,
+				464460652B4C2B030056E77C /* SettingsViewController.swift in Sources */,
 				468550DB2B4497B500C213F8 /* HomeViewModel.swift in Sources */,
+				462BC3F72B4B43150079C235 /* ChechBoxView.swift in Sources */,
 				462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */,
 				462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */,
 				4692FD162B39E5A800D67A89 /* SquareViewController.swift in Sources */,
@@ -269,6 +300,7 @@
 				4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */,
 				462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */,
 				460C035B2B49D0C00089AA68 /* Constants.swift in Sources */,
+				464460692B4C2C3E0056E77C /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

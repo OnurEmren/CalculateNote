@@ -19,6 +19,7 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     var studentList: [StudentAndNotesModel] = []
     var squareData: SquareData?
     var student: StudentAndNotesModel!
+    var isChecked = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -171,6 +172,43 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             }
         }
     }
+    
+    func enableTextFields(for checkBoxTitle: String) {
+        isChecked = !isChecked
+        switch checkBoxTitle {
+        case "Yazılı Sınav":
+            gradeTextField1.isEnabled = true
+            gradeTextField2.isEnabled = false
+            gradeTextField3.isEnabled = false
+        case "Dinleme Sınavı":
+            gradeTextField1.isEnabled = false
+            gradeTextField2.isEnabled = true
+            gradeTextField3.isEnabled = false
+        case "Konuşma Sınavı":
+            gradeTextField1.isEnabled = false
+            gradeTextField2.isEnabled = false
+            gradeTextField3.isEnabled = true
+        default:
+            gradeTextField1.isEnabled = true
+            gradeTextField2.isEnabled = true
+            gradeTextField3.isEnabled = true
+        }
+        
+        upgradeCheckBoxColors(gradeTextField1)
+        upgradeCheckBoxColors(gradeTextField2)
+        upgradeCheckBoxColors(gradeTextField3)
+    }
+
+    func upgradeCheckBoxColors(_ textField: UITextField) {
+        if textField.isEnabled {
+            textField.backgroundColor = .white // Etkinse beyaz renk
+            textField.textColor = .black
+        } else {
+            textField.backgroundColor = .lightGray // Devre dışı bırakılmışsa gri renk
+            textField.textColor = .darkGray
+        }
+    }
+
     
     @objc func gradeTextFieldDidChange(_ textField: UITextField) {
         print("Grade text field changed: \(textField.text ?? "nil")")

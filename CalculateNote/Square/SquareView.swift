@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
-class SquareView: UIView {
-    
+class SquareView: UIView, Coordinating {
+    var coordinator: Coordinator?
     var tapGesture: UITapGestureRecognizer!
     var delegate: SquareViewDelegate?
+    var goToDetailDelegate: GoToDetail?
     var deleteButton: UIButton!
     var classNameLabel: UILabel = UILabel()
     var backgroundImage: UIImageView!
     var onTap: (() -> Void)?
+    var onDelete: (() -> Void)?
     
     var data: SquareData? {
         didSet {
@@ -58,7 +60,6 @@ class SquareView: UIView {
         super.init(frame: frame)
         setupView()
         setupUI()
-        //setupBackgroundImage()
         setupDeleteButton()
     }
     
@@ -91,16 +92,6 @@ class SquareView: UIView {
         }
     }
     
-    private func setupBackgroundImage() {
-           backgroundImage = UIImageView(image: UIImage(named: "page")) // "backgroundImage" yerine kendi resminizin adını kullanın
-           backgroundImage.contentMode = .scaleAspectFill // İsteğe bağlı olarak uygun bir içerik modunu seçebilirsiniz
-           insertSubview(backgroundImage, at: 0)
-           
-           backgroundImage.snp.makeConstraints { make in
-               make.edges.equalToSuperview()
-           }
-       }
-    
     private func setupView() {
         backgroundColor = .clear
         layer.borderWidth = 1.5
@@ -130,13 +121,33 @@ class SquareView: UIView {
     
     @objc
     private func deleteButtonTapped() {
-        removeFromSuperview()
+        let alert = UIAlertController(title: "Emin misiniz?", message: "Bu kareyi silmek istediğinizden emin misiniz?", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Evet", style: .destructive) { [weak self] _ in
+            self?.deleteSquare()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Hayır", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        if let viewController = self.squareViewController {
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func deleteSquare() {
         var classNames = SquareView.savedClassNames
         if let index = classNames.firstIndex(of: className) {
             classNames.remove(at: index)
             UserDefaults.standard.set(classNames, forKey: "SavedClassNames")
         }
+        
+        self.removeFromSuperview()
+       
     }
+
     
     @objc
     private func handleTap() {
