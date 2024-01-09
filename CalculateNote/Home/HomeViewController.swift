@@ -18,7 +18,8 @@ class HomeViewController: UIViewController, Coordinating {
     var homeViewModel: HomeViewModel!
     var checkBoxView: CheckBoxView!
     var isChecked = false
-
+    private var classAverageToDisplay: Double?
+    
     init(className: String) {
         self.className = className
         self.homeViewModel = HomeViewModel(className: className)
@@ -29,7 +30,7 @@ class HomeViewController: UIViewController, Coordinating {
         fatalError("init(coder:) has not been implemented")
     }
     
-//MARK: - Lifecycle
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class HomeViewController: UIViewController, Coordinating {
         }
     }
     
-//MARK: - Create Student List
+    //MARK: - Create Student List
     
     func createStudentList() {
         var studentList: [StudentAndNotesModel] = []
@@ -63,7 +64,7 @@ class HomeViewController: UIViewController, Coordinating {
         tableView.reloadData()
     }
     
-//MARK: - Private Methods
+    //MARK: - Private Methods
     
     // Set View
     private func setupView() {
@@ -84,7 +85,7 @@ class HomeViewController: UIViewController, Coordinating {
         
         let calculateButton = UIButton(type: .system)
         calculateButton.setTitle("Hesapla ve Kaydet", for: .normal)
-        calculateButton.tintColor = Colors.cellsColor
+        calculateButton.tintColor = Colors.darkThemeColor
         calculateButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         view.addSubview(calculateButton)
@@ -94,6 +95,20 @@ class HomeViewController: UIViewController, Coordinating {
             make.bottom.equalTo(-30)
             make.height.equalTo(40)
             make.width.equalTo(200)
+        }
+        
+        let averageButton = UIButton(type: .system)
+        averageButton.setTitle("Ortalama", for: .normal)
+        averageButton.tintColor = Colors.darkThemeColor
+        averageButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        averageButton.addTarget(self, action: #selector(calculateAverageButtonTapped), for: .touchUpInside)
+        view.addSubview(averageButton)
+        
+        averageButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview().offset(-150)
+            make.bottom.equalTo(-30)
+            make.height.equalTo(40)
+            make.width.equalTo(100)
         }
     }
     
@@ -105,24 +120,21 @@ class HomeViewController: UIViewController, Coordinating {
     }
     
     private func setupCheckBoxView() {
-         checkBoxView = CheckBoxView()
-         checkBoxView.onCheckBoxTapped = { [weak self] checkBox in
-             self?.handleCheckBoxTapped(checkBox)
-         }
-         view.addSubview(checkBoxView)
-
-         checkBoxView.snp.makeConstraints { make in
-             make.leading.equalToSuperview().offset(32)
-             make.top.equalToSuperview().offset(110)
-             make.height.equalTo(30)
-         }
-     }
+        checkBoxView = CheckBoxView()
+        checkBoxView.onCheckBoxTapped = { [weak self] checkBox in
+            self?.handleCheckBoxTapped(checkBox)
+        }
+        view.addSubview(checkBoxView)
+        
+        checkBoxView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(32)
+            make.top.equalToSuperview().offset(110)
+            make.height.equalTo(30)
+        }
+    }
     
     private func handleCheckBoxTapped(_ checkBox: UIButton) {
-        // CheckBox durumunu kullanarak işlemleri gerçekleştir
         isChecked = !isChecked
-       // enableTextFields(for: checkBoxTitle)
-
         let checkBoxTitle = checkBox.titleLabel?.text ?? ""
         for (index, _) in studentList.enumerated() {
             if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
@@ -147,22 +159,60 @@ class HomeViewController: UIViewController, Coordinating {
         view.addGestureRecognizer(tapGesture)
     }
     
-//MARK: - @objc Methods
+    //MARK: - @objc Methods
     
-    @objc private func calculateButtonTapped() {
+    @objc
+    private func calculateButtonTapped() {
+        calculateClassAverage()
+        saveStudents()
+    }
+    
+    @objc
+    private func calculateAverageButtonTapped() {
+        showClassAverageAlert()
+    }
+    
+    private func calculateClassAverage() {
+        var totalClassAverage = 0.0
+        var enteredStudentsCount = 0
+        
         for (index, student) in studentList.enumerated() {
-            let average = homeViewModel.calculateAverage(for: student)
+            // Öğrencinin notlarının hepsi sıfırsa bu öğrenciyi atla
+            if student.grades.allSatisfy({ $0 == nil }) {
+                continue
+            }
+            let studentAverage = homeViewModel.calculateAverage(for: student)
             
             if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
-                cell.updateResultLabel(withAverage: average)
+                cell.updateResultLabel(withAverage: studentAverage)
                 cell.updateGradeTextFieldColors(cell.nameTextField)
                 cell.updateGradeTextFieldColors(cell.gradeTextField1)
                 cell.updateGradeTextFieldColors(cell.gradeTextField2)
                 cell.updateGradeTextFieldColors(cell.gradeTextField3)
             }
+            
+            totalClassAverage += studentAverage
+            enteredStudentsCount += 1
         }
-        saveStudents()
+        if enteredStudentsCount > 0 {
+            let overallClassAverage = totalClassAverage / Double(enteredStudentsCount)
+            classAverageToDisplay = overallClassAverage
+        } else {
+            print("Henüz hiç not girilmemiş.")
+        }
     }
+    
+    private func showClassAverageAlert() {
+        if let classAverage = classAverageToDisplay {
+            let alertController = UIAlertController(title: "Sınıf Ortalaması", message: String(format: "%.2f", classAverage), preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            print("Henüz sınıf ortalaması hesaplanmamış.")
+        }
+    }
+    
     
     @objc
     private func dismissKeyboard() {
@@ -203,5 +253,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.textLabel?.text = "\(indexPath.row + 1)"
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        checkBoxView.updateCheckBoxState()
     }
 }

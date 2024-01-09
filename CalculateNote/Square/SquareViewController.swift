@@ -89,7 +89,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     private func setupSettingsButton() {
         let settingsButton = UIBarButtonItem(
-            title: "Ayarlar",
+            title: "Hakkında",
             style: .plain,
             target: self,
             action: #selector(settingsButtonTapped))
@@ -151,7 +151,6 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
             if let className = alert.textFields?.first?.text, !className.isEmpty {
                 self?.addSquare(with: className)
                 self?.collectionView.reloadData()
-                self?.coordinator?.eventOccured(with: .goToClassroom(className: className))
             } else {
                 let errorAlert = UIAlertController(title: "Hata", message: "Lütfen bir sınıf adı girin", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)

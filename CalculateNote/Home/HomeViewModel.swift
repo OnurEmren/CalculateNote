@@ -16,9 +16,9 @@ class HomeViewModel {
     }
     
     func calculateAverage(for student: StudentAndNotesModel) -> Double {
-        let grade1 = student.grades[0] * 0.5
-        let grade2 = student.grades[1] * 0.25
-        let grade3 = student.grades[2] * 0.25
+        let grade1 = (student.grades[0] ?? 0.0) * 0.5
+        let grade2 = (student.grades[1] ?? 0.0) * 0.25
+        let grade3 = (student.grades[2] ?? 0.0) * 0.25
         return (grade1 + grade2 + grade3)
     }
     

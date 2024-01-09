@@ -13,6 +13,7 @@ class CheckBoxView: UIView {
     var checkBox1: UIButton!
     var checkBox2: UIButton!
     var checkBox3: UIButton!
+    var checkBoxButtons: [UIButton] = []
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +48,27 @@ class CheckBoxView: UIView {
         checkBox.addTarget(self, action: #selector(checkBoxTapped), for: .touchUpInside)
         return checkBox
     }
+    
+    
+    func updateCheckBoxState() {
+        let checkBoxTitle = getSelectedCheckBoxTitle()
+        for (index, _) in checkBoxButtons.enumerated() {
+            if let cell = checkBoxVC?.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
+                cell.enableTextFields(for: checkBoxTitle)
+            }
+        }
+    }
+
+    private func getSelectedCheckBoxTitle() -> String {
+        if checkBox1.isSelected {
+            return checkBox1.titleLabel?.text ?? ""
+        } else if checkBox2.isSelected {
+            return checkBox2.titleLabel?.text ?? ""
+        } else if checkBox3.isSelected {
+            return checkBox3.titleLabel?.text ?? ""
+        }
+        return ""
+    }
 
     @objc private func checkBoxTapped(_ sender: UIButton) {
         resetCheckBoxes()
@@ -58,7 +80,21 @@ class CheckBoxView: UIView {
         checkBox1.isSelected = false
         checkBox2.isSelected = false
         checkBox3.isSelected = false
+        checkBoxVC?.tableView.reloadData()
     }
 
     var onCheckBoxTapped: ((UIButton) -> Void)?
+}
+
+extension UIView {
+    var checkBoxVC: HomeViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            responder = nextResponder
+            if let viewController = nextResponder as? HomeViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
 }

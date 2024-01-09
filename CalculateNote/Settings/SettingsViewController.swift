@@ -15,7 +15,6 @@ class SettingsViewController: UIViewController,Coordinating {
         super.viewDidLoad()
         setupView()
         navigationController?.navigationBar.tintColor = Colors.lightThemeColor
-        view.backgroundColor = .red
     }
     
     private func setupView() {

@@ -69,15 +69,29 @@ extension ManageOnBoardingViewController {
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage
         
-        skipButton.translatesAutoresizingMaskIntoConstraints = false
-        skipButton.setTitleColor(.systemBlue, for: .normal)
-        skipButton.setTitle("Skip", for: .normal)
-        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
-
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.setTitleColor(.systemBlue, for: .normal)
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
+        setupSkipButton()
+        setupNextButton()
+    }
+    
+    
+    private func setupSkipButton() {
+        let skipButton = UIBarButtonItem(
+            title: "Skip",
+            style: .plain,
+            target: self,
+            action: #selector(skipTapped))
+        navigationItem.rightBarButtonItem = skipButton
+        skipButton.tintColor = Colors.darkThemeColor
+    }
+    
+    private func setupNextButton() {
+        let nextButton = UIBarButtonItem(
+            title: "Next",
+            style: .plain,
+            target: self,
+            action: #selector(nextTapped))
+        navigationItem.leftBarButtonItem = nextButton
+        nextButton.tintColor = Colors.darkThemeColor
     }
     
     @objc
@@ -113,8 +127,6 @@ extension ManageOnBoardingViewController {
     }
     
     private func goToSpecificPage(index: Int, ofViewControllers pages: [UIViewController]) {
-//        let vc = SquareViewController()
-//        navigationController?.pushViewController(vc, animated: true)
         coordinator?.eventOccured(with: .goToSquareViewController)
     }
     

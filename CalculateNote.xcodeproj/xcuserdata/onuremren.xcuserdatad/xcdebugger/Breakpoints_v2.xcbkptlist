@@ -413,10 +413,10 @@
             filePath = "CalculateNote/Others/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "showOnboardingScreen()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "55228DC9-2082-44A0-90E9-8984E609C4BD - a693ff9f4ab57757"
@@ -461,24 +461,8 @@
             filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "goToSpecificPage(index:ofViewControllers:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4060F97B-78B4-4886-874C-EDE15287B122"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "goToSpecificPage(index:ofViewControllers:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -487,14 +471,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ACEE2649-1F64-469E-BEF0-87618BF1C91E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "skipTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -503,14 +487,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1FCCFC7F-4C4A-4F5C-8EF8-A1D00131E2BF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "skipTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,14 +503,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5AE52CF2-3B86-46DD-B75D-3767A7BD3E6D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "skipTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -535,14 +519,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "53EDA7CC-CB77-4AA4-8F47-99BC3691AED8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "skipTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -673,147 +657,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A935C892-4CE8-4D49-8460-E4BECE725CDA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/Square/SquareViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "addButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A935C892-4CE8-4D49-8460-E4BECE725CDA - bd3f7af9218745a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "920">
-               </Location>
-               <Location
-                  uuid = "A935C892-4CE8-4D49-8460-E4BECE725CDA - bd3f7af921874542"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "688">
-               </Location>
-               <Location
-                  uuid = "A935C892-4CE8-4D49-8460-E4BECE725CDA - bd3f7af921874542"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "696">
-               </Location>
-               <Location
-                  uuid = "A935C892-4CE8-4D49-8460-E4BECE725CDA - bd3f7af9218747f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "660">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C3CE7593-40E9-449A-A91D-14F3252A06F2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/Square/SquareViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "addButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C3CE7593-40E9-449A-A91D-14F3252A06F2 - eac9a7983614feb4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "C3CE7593-40E9-449A-A91D-14F3252A06F2 - bd3f7af9218746a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "836">
-               </Location>
-               <Location
-                  uuid = "C3CE7593-40E9-449A-A91D-14F3252A06F2 - bd3f7af92187464a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "836">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B2910B18-12BD-4956-A9F4-126AC0A4C088"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -869,8 +712,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1013,8 +856,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "updateCollectionView()"
             landmarkType = "7">
             <Locations>
@@ -1076,8 +919,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "updateCollectionView()"
             landmarkType = "7">
             <Locations>
@@ -1124,25 +967,9 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "updateCollectionView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "68A4C81E-1FA7-4101-93EB-ADAACA915822"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/OnBoarding/ManageOnBoardingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "goToSpecificPage(index:ofViewControllers:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1156,8 +983,8 @@
             filePath = "CalculateNote/Square/SquareViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "squareTappedForCell(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1176,69 +1003,6 @@
             endingLineNumber = "50"
             landmarkName = "setupSquareView()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "284F964B-0447-415F-A335-7E29362A031B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculateNote/Square/SquareViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "addButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "284F964B-0447-415F-A335-7E29362A031B - eac9a7983614f8fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "284F964B-0447-415F-A335-7E29362A031B - 3f4bbb5f38b89276"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UITextField) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "284F964B-0447-415F-A335-7E29362A031B - bd3f7af9218740f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in CalculateNote.SquareViewController.addButtonTapped() -&gt; ()"
-                  moduleName = "CalculateNote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/CalculateNote/CalculateNote/Square/SquareViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "1136">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

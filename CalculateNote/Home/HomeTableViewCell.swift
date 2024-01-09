@@ -130,9 +130,9 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func updateUI(with student: StudentAndNotesModel) {
         nameTextField.text = student.name
-        gradeTextField1.text = "\(student.grades[0])"
-        gradeTextField2.text = "\(student.grades[1])"
-        gradeTextField3.text = "\(student.grades[2])"
+        gradeTextField1.text = student.grades[0].map { String($0) } ?? ""  // nil ise boş string yaz
+        gradeTextField2.text = student.grades[1].map { String($0) } ?? ""  // nil ise boş string yaz
+        gradeTextField3.text = student.grades[2].map { String($0) } ?? ""  // nil ise boş string yaz
     }
     
     func updateResultLabel(withAverage average: Double) {
@@ -218,8 +218,12 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.text = ""
+//    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return false
     }
 }
 

@@ -9,10 +9,10 @@ import Foundation
 
 class StudentAndNotesModel: Codable {
     var name: String
-    var grades: [Double]
+    var grades: [Double?]
 
     init(name: String) {
         self.name = name
-        self.grades = [0.0, 0.0, 0.0]
+        self.grades = [nil, nil, nil]
     }
 }

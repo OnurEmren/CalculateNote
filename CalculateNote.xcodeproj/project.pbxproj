@@ -35,6 +35,7 @@
 		46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */; };
 		46C970D42B0671AE00B8D90A /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 46C970D32B0671AE00B8D90A /* SideMenu */; };
 		46D098102B4C8A4E0013F495 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D0980F2B4C8A4E0013F495 /* SettingsView.swift */; };
+		46D098122B4CA1700013F495 /* StudentCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D098112B4CA1700013F495 /* StudentCount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		46C970BC2B03C29400B8D90A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAndNotesModel.swift; sourceTree = "<group>"; };
 		46D0980F2B4C8A4E0013F495 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		46D098112B4CA1700013F495 /* StudentCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				46C970C52B03C4D100B8D90A /* StudentAndNotesModel.swift */,
 				4667542E2B3B2FF800543E44 /* SquareData.swift */,
+				46D098112B4CA1700013F495 /* StudentCount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,11 +186,11 @@
 			isa = PBXGroup;
 			children = (
 				464460672B4C2C260056E77C /* Coordinator */,
-				464460662B4C2B100056E77C /* Settings */,
 				462E477F2B474AC7004F43A0 /* OnBoarding */,
 				4692FD142B39E59900D67A89 /* Square */,
 				463ED7452B431D92004C110C /* Home */,
 				4667542D2B3B2FE400543E44 /* Model */,
+				464460662B4C2B100056E77C /* Settings */,
 				468550D72B446E8100C213F8 /* Utils */,
 				463ED7442B431ADB004C110C /* Others */,
 				46C970BC2B03C29400B8D90A /* Info.plist */,
@@ -303,6 +306,7 @@
 				462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */,
 				4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */,
 				462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */,
+				46D098122B4CA1700013F495 /* StudentCount.swift in Sources */,
 				460C035B2B49D0C00089AA68 /* Constants.swift in Sources */,
 				464460692B4C2C3E0056E77C /* Coordinator.swift in Sources */,
 			);

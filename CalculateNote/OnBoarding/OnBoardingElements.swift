@@ -25,7 +25,7 @@ class OnBoardingElements {
         title.snp.makeConstraints { make in
             make.height.equalTo(100)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(45)
+            make.centerY.equalToSuperview()
         }
         
         subtitle.snp.makeConstraints { make in
