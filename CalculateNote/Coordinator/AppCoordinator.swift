@@ -16,7 +16,7 @@ class AppCoordinator: Coordinator {
     
     func eventOccured(with type: Event) {
         switch type {
-        case .goToSquareViewController:
+        case .goToClassesViewControllerPage:
             let squareVC = ClassesViewController()
             navigationController?.pushViewController(squareVC, animated: true)
             

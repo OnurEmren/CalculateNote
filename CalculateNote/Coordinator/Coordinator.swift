@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum Event {
-    case goToSquareViewController
+    case goToClassesViewControllerPage
     case goToClassroom (className: String)
     case goToSettings
 }

@@ -124,7 +124,7 @@ extension ManageOnBoardingViewController {
     }
     
     private func goToSpecificPage(index: Int, ofViewControllers pages: [UIViewController]) {
-        coordinator?.eventOccured(with: .goToSquareViewController)
+        coordinator?.eventOccured(with: .goToClassesViewControllerPage)
     }
     
     private func layout() {
