@@ -52,9 +52,11 @@ class CheckBoxView: UIView {
     
     func updateCheckBoxState() {
         let checkBoxTitle = getSelectedCheckBoxTitle()
-        for (index, _) in checkBoxButtons.enumerated() {
-            if let cell = checkBoxVC?.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
-                cell.enableTextFields(for: checkBoxTitle)
+        if let visibleIndexPaths = checkBoxVC?.studentsAndNotesTableView.indexPathsForVisibleRows {
+            for indexPath in visibleIndexPaths {
+                if let cell = checkBoxVC?.studentsAndNotesTableView.cellForRow(at: indexPath) as? StudentsNotesTableViewCell {
+                    cell.enableTextFields(for: checkBoxTitle)
+                }
             }
         }
     }
@@ -70,28 +72,30 @@ class CheckBoxView: UIView {
         return ""
     }
 
-    @objc private func checkBoxTapped(_ sender: UIButton) {
+    @objc 
+    private func checkBoxTapped(_ sender: UIButton) {
         resetCheckBoxes()
         sender.isSelected = true
         onCheckBoxTapped?(sender)
+        checkBoxVC?.studentsAndNotesTableView.reloadData()
+
     }
 
     private func resetCheckBoxes() {
         checkBox1.isSelected = false
         checkBox2.isSelected = false
         checkBox3.isSelected = false
-        checkBoxVC?.tableView.reloadData()
     }
 
     var onCheckBoxTapped: ((UIButton) -> Void)?
 }
 
 extension UIView {
-    var checkBoxVC: HomeViewController? {
+    var checkBoxVC: StudentNotesViewController? {
         var responder: UIResponder? = self
         while let nextResponder = responder?.next {
             responder = nextResponder
-            if let viewController = nextResponder as? HomeViewController {
+            if let viewController = nextResponder as? StudentNotesViewController {
                 return viewController
             }
         }

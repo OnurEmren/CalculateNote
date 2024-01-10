@@ -8,21 +8,21 @@
 import UIKit
 import SideMenu
 
-class HomeViewController: UIViewController, Coordinating {
+class StudentNotesViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
-    var tableView: UITableView!
-    var homeTableViewCell = HomeTableViewCell()
+    var studentsAndNotesTableView: UITableView!
+    var homeTableViewCell = StudentsNotesTableViewCell()
     var squareData: SquareData?
     var className: String?
     var studentList: [StudentAndNotesModel] = []
-    var homeViewModel: HomeViewModel!
+    var homeViewModel: StudentNotesViewModel!
     var checkBoxView: CheckBoxView!
     var isChecked = false
     private var classAverageToDisplay: Double?
     
     init(className: String) {
         self.className = className
-        self.homeViewModel = HomeViewModel(className: className)
+        self.homeViewModel = StudentNotesViewModel(className: className)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,22 +61,21 @@ class HomeViewController: UIViewController, Coordinating {
             studentList.append(student)
         }
         self.studentList = studentList
-        tableView.reloadData()
+        studentsAndNotesTableView.reloadData()
     }
     
     //MARK: - Private Methods
     
     // Set View
     private func setupView() {
-        tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = Colors.appMainColor
-        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "StudentCell")
-        view.addSubview(tableView)
+        studentsAndNotesTableView = UITableView()
+        studentsAndNotesTableView.delegate = self
+        studentsAndNotesTableView.dataSource = self
+        studentsAndNotesTableView.backgroundColor = Colors.appMainColor
+        studentsAndNotesTableView.register(StudentsNotesTableViewCell.self, forCellReuseIdentifier: "StudentCell")
+        view.addSubview(studentsAndNotesTableView)
         
-        
-        tableView.snp.makeConstraints { (make) in
+        studentsAndNotesTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(150)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -137,7 +136,7 @@ class HomeViewController: UIViewController, Coordinating {
         isChecked = !isChecked
         let checkBoxTitle = checkBox.titleLabel?.text ?? ""
         for (index, _) in studentList.enumerated() {
-            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
+            if let cell = studentsAndNotesTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? StudentsNotesTableViewCell {
                 cell.enableTextFields(for: checkBoxTitle)
             }
         }
@@ -159,31 +158,20 @@ class HomeViewController: UIViewController, Coordinating {
         view.addGestureRecognizer(tapGesture)
     }
     
-    //MARK: - @objc Methods
-    
-    @objc
-    private func calculateButtonTapped() {
-        calculateClassAverage()
-        saveStudents()
-    }
-    
-    @objc
-    private func calculateAverageButtonTapped() {
-        showClassAverageAlert()
-    }
-    
     private func calculateClassAverage() {
         var totalClassAverage = 0.0
         var enteredStudentsCount = 0
         
         for (index, student) in studentList.enumerated() {
-            // Öğrencinin notlarının hepsi sıfırsa bu öğrenciyi atla
+            
+            // If students notes are 0.0, pass the students
             if student.grades.allSatisfy({ $0 == nil }) {
                 continue
             }
             let studentAverage = homeViewModel.calculateAverage(for: student)
             
-            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? HomeTableViewCell {
+            //Update cells
+            if let cell = studentsAndNotesTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? StudentsNotesTableViewCell {
                 cell.updateResultLabel(withAverage: studentAverage)
                 cell.updateGradeTextFieldColors(cell.nameTextField)
                 cell.updateGradeTextFieldColors(cell.gradeTextField1)
@@ -213,6 +201,18 @@ class HomeViewController: UIViewController, Coordinating {
         }
     }
     
+    //MARK: - @objc Methods
+    
+    @objc
+    private func calculateButtonTapped() {
+        calculateClassAverage()
+        saveStudents()
+    }
+    
+    @objc
+    private func calculateAverageButtonTapped() {
+        showClassAverageAlert()
+    }
     
     @objc
     private func dismissKeyboard() {
@@ -222,14 +222,14 @@ class HomeViewController: UIViewController, Coordinating {
 
 //MARK: - Extensions
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension StudentNotesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         studentList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! StudentsNotesTableViewCell
         let student = studentList[indexPath.row]
         cell.student = student
         cell.nameTextField.delegate = cell

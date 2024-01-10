@@ -8,9 +8,9 @@
 import UIKit
 
 
-class SquareViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GoToDetail, Coordinating {
+class ClassesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GoToStudentNotesPage, Coordinating {
     var coordinator: Coordinator?
-    private let squareView = SquareView()
+    private let squareView = ClassesView()
     private var squareData: [SquareData] = []
     private var settingsButton = UIButton()
     var collectionView: UICollectionView!
@@ -18,20 +18,20 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     private var selectedSquareIndex: Int?
     private var className: String?
     private let squareViewControllerKey = "SquareViewControllerKey"
-    private var squareViewModel = SquareViewModel()
+    private var squareViewModel = ClassesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupCollectionView()
-        setupAddButton()
         loadSavedPages()
-        setupSettingsButton()
-        view.backgroundColor = Colors.darkThemeColor
         squareView.coordinator = coordinator
-        
-     
-
-        
+        view.backgroundColor = Colors.darkThemeColor
+    }
+    
+//MARK: - Private Methods
+    
+    private func setupView() {
         let backgroundImageView = UIImageView(image: UIImage(named: "page"))
         backgroundImageView.contentMode = .scaleAspectFill
         view.insertSubview(backgroundImageView, at: 0)
@@ -39,14 +39,30 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        //Settings Button
+        let settingsButton = UIBarButtonItem(
+            title: "Hakkında",
+            style: .plain,
+            target: self,
+            action: #selector(settingsButtonTapped))
+        navigationItem.rightBarButtonItem = settingsButton
+        settingsButton.tintColor = Colors.darkThemeColor
         
-        // User must create a square
-        if squareData.isEmpty || squareData.allSatisfy({ $0.className.isEmpty }) {
-            showAddSquareAlert()
+        //Add Button
+        addButton = UIButton(type: .system)
+        addButton.setTitle("Ekle", for: .normal)
+        addButton.tintColor = Colors.darkThemeColor
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        view.addSubview(addButton)
+        
+        addButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.centerX.equalToSuperview()
         }
     }
-    
-//MARK: - Private Methods
 
     //Setup Views
     private func setupCollectionView() {
@@ -61,7 +77,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.backgroundColor = .clear
         collectionView.isUserInteractionEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
+        collectionView.register(ClassesCollectionViewCell.self, forCellWithReuseIdentifier: ClassesCollectionViewCell.identifier)
         view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
@@ -70,31 +86,6 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
             make.right.equalToSuperview().offset(-10)
             make.height.equalTo(300)
         }
-    }
-    
-    private func setupAddButton() {
-        addButton = UIButton(type: .system)
-        addButton.setTitle("Ekle", for: .normal)
-        addButton.tintColor = Colors.darkThemeColor
-        addButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        view.addSubview(addButton)
-        
-        addButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
-            make.centerX.equalToSuperview()
-        }
-    }
-    
-    private func setupSettingsButton() {
-        let settingsButton = UIBarButtonItem(
-            title: "Hakkında",
-            style: .plain,
-            target: self,
-            action: #selector(settingsButtonTapped))
-        navigationItem.rightBarButtonItem = settingsButton
-        settingsButton.tintColor = Colors.darkThemeColor
     }
     
     //Alert Dialog
@@ -112,8 +103,8 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
         present(alert, animated: true, completion: nil)
     }
     
-    //User create a class and write to the square's label.
-    private func handleClassNameEntered(_ className: String, for squareView: SquareView) {
+    //User create a class and write to the className label.
+    private func handleClassNameEntered(_ className: String, for squareView: ClassesView) {
         if let index = squareData.firstIndex(where: { $0.className == squareView.className }) {
             squareData[index].className = className
             collectionView.reloadData()
@@ -128,7 +119,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     private func loadSavedPages() {
-        let classNames = SquareView.savedClassNames
+        let classNames = ClassesView.savedClassNames
         squareData = classNames.map { SquareData(className: $0) }
         collectionView.reloadData()
         
@@ -189,7 +180,7 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClassesCollectionViewCell.identifier, for: indexPath) as! ClassesCollectionViewCell
         cell.goToDetailDelegate = self
         cell.squareData = squareData[indexPath.item]
         return cell
@@ -197,18 +188,12 @@ class SquareViewController: UIViewController, UICollectionViewDelegate, UICollec
     
 //MARK: - Delegate Method
     
-    func squareTappedForCell(_ cell: SquareCollectionViewCell, with className: String) {
+    func squareTappedForCell(_ cell: ClassesCollectionViewCell, with className: String) {
         if let indexPath = collectionView.indexPath(for: cell) {
             selectedSquareIndex = indexPath.item
             squareData[selectedSquareIndex!].className = className
             let selectedSquareData = squareData[selectedSquareIndex!]
             coordinator?.eventOccured(with: .goToClassroom(className: selectedSquareData.className))
-        }
-    }
-    
-    func updateCollectionView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
         }
     }
 }

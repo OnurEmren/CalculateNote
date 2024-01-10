@@ -12,6 +12,7 @@ import SnapKit
 class SettingsView: UIView, UIScrollViewDelegate {
     private var scrollView: UIScrollView = UIScrollView()
     private var descriptionLabel: UILabel = UILabel()
+    private var titleLabel: UILabel = UILabel()
     private var stackView = UIStackView()
     
     override init(frame: CGRect) {
@@ -25,51 +26,42 @@ class SettingsView: UIView, UIScrollViewDelegate {
     
     private func setupSettingsView() {
         addSubview(scrollView)
+        scrollView.addSubview(titleLabel)
         scrollView.addSubview(descriptionLabel)
         
         scrollView.delegate = self
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: frame.size.width, height: 1000)
+        scrollView.contentSize = CGSize(width: frame.size.width, height: 1200)
         descriptionLabel.sizeToFit()
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(-50)
+        titleLabel.text = Constants.titleText
+        titleLabel.textColor = Colors.lightThemeColor
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(30)
+            make.centerX.equalToSuperview()
             make.width.equalToSuperview().inset(10)
-            make.left.equalTo(10)
-            make.height.equalTo(1000)
+            make.height.equalTo(40)
         }
         
-        descriptionLabel.text = """
-        • Her sınıfa 50 öğrenci ekleyebilirsiniz.
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.top).offset(-50)
+            make.width.equalToSuperview().inset(10)
+            make.left.equalTo(10)
+            make.height.equalTo(1200)
+        }
         
-        • Her öğrencinin adı ve üç farklı sınav alanındaki notları (Yazılı, Dinleme, Konuşma) kaydedilebilir.
-        
-        • Yazılı sınav notu, öğrencinin genel notuna %50 oranında etki ederken, Dinleme ve Konuşma sınavları %25'er oranında etki eder.
-        
-        • Uygulama, her öğrencinin notlarını temel alarak genel bir not ortalaması hesaplar.
-        
-        • Not hesaplama formülü: Genel Not =
-        (Yazılı Not * 0.5) + (Dinleme Not * 0.25) + (Konuşma Not * 0.25).
-        
-        • Kullanıcılar ekledikleri sınıfları ve bu sınıflara ait öğrencileri takip edebilir.
-        
-        • Her öğrencinin genel notu, sınıf içinde karşılaştırmalı bir şekilde görüntülenebilir. Girilen notlar ve eklenen sınıflar, uygulama tarafından Kaydet ve Hesapla butonu ile kaydedilir.
-        
-        • Hesapla ve kaydet butonuna basıldığında not veya öğrenci ismi girilmemiş alanlar koyu renk ile belirtilir.
-        
-        • Öğrenci listesi alanında not girerken sadece üç not alanından sadece birini girmek istiyorsanız kolay olması açısından girmek istediğiniz alanı seçebilirsiniz. Bu durumda sadece seçtiğiniz alan ve öğrenci isimleri aktif olacaktır. Diğer alanlar kullanıma kapatılır ancak öncesinde yazdığınız not Hesapla ve Kaydet butonuna basıldığında gene de kaydedilecektir.
-        
-        • Kullanıcı bildirimi açısından uygulama eksiklikleri için onuremren33@gmail.com adresine geri bildirimlerinizi gönderebilirsiniz.
-        
-        """
+        descriptionLabel.text = Constants.descriptionText
         descriptionLabel.backgroundColor = .clear
         descriptionLabel.textColor = Colors.lightThemeColor
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.font = UIFont.systemFont(ofSize: 18)
         scrollView.backgroundColor = Colors.darkThemeColor
     }
 }

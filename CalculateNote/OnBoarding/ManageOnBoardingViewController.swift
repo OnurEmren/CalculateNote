@@ -52,8 +52,6 @@ extension ManageOnBoardingViewController {
         let page4 = OnBoardingViewController4(imageName: "page",
                                               titleText: "Not alanları",
                                               subtitleText: "1. Yazılı Sınav Not Alanı 2. Dinleme Sınavı Not Alanı 3. Konuşma Sınavı Alanı")
-        
-        
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
@@ -72,7 +70,6 @@ extension ManageOnBoardingViewController {
         setupSkipButton()
         setupNextButton()
     }
-    
     
     private func setupSkipButton() {
         let skipButton = UIBarButtonItem(
@@ -133,7 +130,6 @@ extension ManageOnBoardingViewController {
     private func layout() {
         let horizontalSpacing: CGFloat = 16
         let verticalOffset: CGFloat = -20
-        
 
         view.addSubview(pageControl)
         view.addSubview(nextButton)

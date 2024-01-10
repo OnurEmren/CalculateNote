@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
+class StudentsNotesTableViewCell: UITableViewCell, UITextFieldDelegate {
     var nameTextField: UITextField!
     var resultLabel: UILabel!
     var gradeTextField1: UITextField!
@@ -82,11 +82,6 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         gradeTextFields = [gradeTextField1, gradeTextField2, gradeTextField3]
         
-        for (index, gradeTextField) in gradeTextFields.enumerated() {
-            gradeTextField.tag = index
-            gradeTextField.addTarget(self, action: #selector(gradeTextFieldDidChange(_:)), for: .editingChanged)
-        }
-        
         resultLabel = UILabel()
         resultLabel.textAlignment = .center
         resultLabel.textColor = .white
@@ -96,6 +91,11 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
         resultLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(Constants.resultLabelOffset)
+        }
+        
+        for (index, gradeTextField) in gradeTextFields.enumerated() {
+            gradeTextField.tag = index
+            gradeTextField.addTarget(self, action: #selector(gradeTextFieldDidChange(_:)), for: .editingChanged)
         }
     }
     
@@ -130,9 +130,9 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func updateUI(with student: StudentAndNotesModel) {
         nameTextField.text = student.name
-        gradeTextField1.text = student.grades[0].map { String($0) } ?? ""  // nil ise boş string yaz
-        gradeTextField2.text = student.grades[1].map { String($0) } ?? ""  // nil ise boş string yaz
-        gradeTextField3.text = student.grades[2].map { String($0) } ?? ""  // nil ise boş string yaz
+        gradeTextField1.text = student.grades[0].map { String($0) } ?? ""
+        gradeTextField2.text = student.grades[1].map { String($0) } ?? ""
+        gradeTextField3.text = student.grades[2].map { String($0) } ?? ""  
     }
     
     func updateResultLabel(withAverage average: Double) {
@@ -193,7 +193,6 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
             gradeTextField2.isEnabled = true
             gradeTextField3.isEnabled = true
         }
-        
         upgradeCheckBoxColors(gradeTextField1)
         upgradeCheckBoxColors(gradeTextField2)
         upgradeCheckBoxColors(gradeTextField3)
@@ -201,26 +200,21 @@ class HomeTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     func upgradeCheckBoxColors(_ textField: UITextField) {
         if textField.isEnabled {
-            textField.backgroundColor = .white // Etkinse beyaz renk
+            textField.backgroundColor = .white
             textField.textColor = .black
         } else {
-            textField.backgroundColor = .lightGray // Devre dışı bırakılmışsa gri renk
+            textField.backgroundColor = .systemFill
             textField.textColor = .darkGray
         }
     }
 
     
     @objc func gradeTextFieldDidChange(_ textField: UITextField) {
-        print("Grade text field changed: \(textField.text ?? "nil")")
         if let text = textField.text, let grade = Double(text) {
             let index = textField.tag
             student?.grades[index] = grade
         }
     }
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        textField.text = ""
-//    }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return false

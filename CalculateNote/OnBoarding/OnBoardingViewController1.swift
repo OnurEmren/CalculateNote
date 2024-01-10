@@ -33,7 +33,6 @@ class OnBoardingViewController1: UIViewController {
         style()
         layout()
         view.backgroundColor = Colors.darkThemeColor
-
     }
     
     private func style() {

@@ -8,21 +8,20 @@
 import Foundation
 import UIKit
 
-class SquareView: UIView, Coordinating {
+class ClassesView: UIView, Coordinating {
     var coordinator: Coordinator?
-    var tapGesture: UITapGestureRecognizer!
-    var delegate: SquareViewDelegate?
-    var goToDetailDelegate: GoToDetail?
-    var deleteButton: UIButton!
+    var delegate: ClassesViewDelegate?
+    var goToDetailDelegate: GoToStudentNotesPage?
     var classNameLabel: UILabel = UILabel()
-    var backgroundImage: UIImageView!
-    var onTap: (() -> Void)?
+    private var tapGesture: UITapGestureRecognizer!
+    var deleteButton: UIButton!
+    private var backgroundImage: UIImageView!
+    private var onTap: (() -> Void)?
     var onDelete: (() -> Void)?
-    
+
     var data: SquareData? {
         didSet {
             if let data = data {
-                print("Setting data for SquareView: \(data.className)")
                 className = data.className
                 classNameLabel.text = data.className
             } else {
@@ -30,7 +29,6 @@ class SquareView: UIView, Coordinating {
             }
         }
     }
-
     
     static var savedClassNames: [String] {
         return UserDefaults.standard.stringArray(forKey: "SavedClassNames") ?? []
@@ -39,12 +37,11 @@ class SquareView: UIView, Coordinating {
     var className: String = "" {
         didSet {
             if !className.isEmpty {
-                var classNames = SquareView.savedClassNames
+                var classNames = ClassesView.savedClassNames
                 if !classNames.contains(className) {
                     classNames.append(className)
                     UserDefaults.standard.set(classNames, forKey: "SavedClassNames")
                 }
-                
                 if let savedNames = UserDefaults.standard.stringArray(forKey: "SavedClassNames") {
                     classNameLabel.text = savedNames.joined(separator: ", ")
                 } else {
@@ -125,7 +122,6 @@ class SquareView: UIView, Coordinating {
         let deleteAction = UIAlertAction(title: "Evet", style: .destructive) { [weak self] _ in
             self?.deleteSquare()
         }
-        
         let cancelAction = UIAlertAction(title: "Hayır", style: .cancel, handler: nil)
         
         alert.addAction(deleteAction)
@@ -137,46 +133,31 @@ class SquareView: UIView, Coordinating {
     }
     
     private func deleteSquare() {
-        var classNames = SquareView.savedClassNames
+        var classNames = ClassesView.savedClassNames
         if let index = classNames.firstIndex(of: className) {
             classNames.remove(at: index)
             UserDefaults.standard.set(classNames, forKey: "SavedClassNames")
         }
-        
         self.removeFromSuperview()
         squareViewController?.collectionView.reloadData()
-       
     }
 
-    
     @objc
     private func handleTap() {
-           onTap?()
-           if let squareData = data {
-               _ = SquareData(className: squareData.className)
-               delegate?.squareTapped(self)
-           }
-       }
-    
-    func animateGrowth() {
-        UIView.animate(withDuration: 0.3) {
-            self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        }
-    }
-    
-    func animateShrink() {
-        UIView.animate(withDuration: 0.3) {
-            self.transform = .identity
+        onTap?()
+        if let squareData = data {
+            _ = SquareData(className: squareData.className)
+            delegate?.squareTapped(self)
         }
     }
 }
 
 extension UIView {
-    var squareViewController: SquareViewController? {
+    var squareViewController: ClassesViewController? {
         var responder: UIResponder? = self
         while let nextResponder = responder?.next {
             responder = nextResponder
-            if let viewController = nextResponder as? SquareViewController {
+            if let viewController = nextResponder as? ClassesViewController {
                 return viewController
             }
         }

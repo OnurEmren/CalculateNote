@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+class StudentNotesViewModel {
     private var studentList: [StudentAndNotesModel] = []
     private var className: String?
     
@@ -39,7 +39,6 @@ class HomeViewModel {
               let loadedStudents = try? JSONDecoder().decode([StudentAndNotesModel].self, from: savedData) else {
             return
         }
-        
         studentList = loadedStudents
     }
     

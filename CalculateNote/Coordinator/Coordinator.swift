@@ -12,7 +12,6 @@ enum Event {
     case goToSquareViewController
     case goToClassroom (className: String)
     case goToSettings
-   
 }
 
 protocol Coordinator: AnyObject {

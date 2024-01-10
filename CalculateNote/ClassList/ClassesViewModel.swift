@@ -7,17 +7,17 @@
 
 import Foundation
 
-class SquareViewModel {
+class ClassesViewModel {
     private var squareData: [SquareData] = []
     private let squareViewControllerKey = "SquareViewControllerKey"
-    private var squareView = SquareView()
+    private var squareView = ClassesView()
 
     func saveData(withKey key: String) {
         do {
             let encodedData = try JSONEncoder().encode(squareData)
             UserDefaults.standard.set(encodedData, forKey: key)
         } catch {
-            print("SquareData Kaydedilirken Hata Oluştu: \(error.localizedDescription)")
+            print("Save Hatası: \(error.localizedDescription)")
         }
     }
 }

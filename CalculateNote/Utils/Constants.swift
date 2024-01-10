@@ -39,4 +39,33 @@ enum Constants {
     
     //StackView Constants
     static let stackViewSpacing = 20.0
+    
+    //SettingsView Strings
+    static let titleText = "Nasıl Kullanılır?"
+    static let descriptionText = """
+        
+        • Her sınıfa 50 öğrenci ekleyebilirsiniz.
+        
+        • Her öğrencinin adı ve üç farklı sınav alanındaki notları (Yazılı, Dinleme, Konuşma) kaydedilebilir.
+        
+        • Yazılı sınav notu, öğrencinin genel notuna %50 oranında etki ederken, Dinleme ve Konuşma sınavları %25'er oranında etki eder.
+        
+        • Uygulama, her öğrencinin notlarını temel alarak genel bir not ortalaması hesaplar.
+        
+        • Not hesaplama formülü: Genel Not =
+        (Yazılı Not * 0.5) + (Dinleme Not * 0.25) + (Konuşma Not * 0.25).
+        
+        • Kullanıcılar ekledikleri sınıfları ve bu sınıflara ait öğrencileri takip edebilir.
+        
+        • Her öğrencinin genel notu, sınıf içinde karşılaştırmalı bir şekilde görüntülenebilir. Girilen notlar ve eklenen sınıflar, uygulama tarafından Kaydet ve Hesapla butonu ile kaydedilir.
+        
+        • Hesapla ve kaydet butonuna basıldığında not veya öğrenci ismi girilmemiş alanlar koyu renk ile belirtilir.
+        
+        • Öğrenci listesi alanında not girerken sadece üç not alanından sadece birini girmek istiyorsanız kolay olması açısından girmek istediğiniz alanı seçebilirsiniz. Bu durumda sadece seçtiğiniz alan ve öğrenci isimleri aktif olacaktır. Diğer alanlar kullanıma kapatılır ancak öncesinde yazdığınız not Hesapla ve Kaydet butonuna basıldığında gene de kaydedilecektir.
+        
+        • Ortalama butonu ile girdiğiniz öğrencilere ait sınıf ortalamasını hesaplayabilirsiniz.
+        
+        • Kullanıcı bildirimi açısından uygulama eksiklikleri için onuremren33@gmail.com adresine geri bildirimlerinizi gönderebilirsiniz.
+        
+        """
 }

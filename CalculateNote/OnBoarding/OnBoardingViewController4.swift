@@ -46,7 +46,6 @@ class OnBoardingViewController4: UIViewController {
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
         subtitleLabel.textAlignment = .center
         subtitleLabel.textColor = Colors.cellsColor
-        
         subtitleLabel.numberOfLines = 0
     }
     

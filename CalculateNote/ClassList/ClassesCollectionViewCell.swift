@@ -8,22 +8,21 @@
 import Foundation
 import UIKit
 
-protocol SquareViewDelegate: AnyObject {
-    func squareTapped(_ squareView: SquareView)
-    func deleteButtonTapped(_ squareView: SquareView)
+protocol ClassesViewDelegate: AnyObject {
+    func squareTapped(_ squareView: ClassesView)
+    func deleteButtonTapped(_ squareView: ClassesView)
 }
 
-protocol GoToDetail: AnyObject {
-    func squareTappedForCell(_ cell: SquareCollectionViewCell, with className: String)
-    func updateCollectionView()
+protocol GoToStudentNotesPage: AnyObject {
+    func squareTappedForCell(_ cell: ClassesCollectionViewCell, with className: String)
 }
 
-class SquareCollectionViewCell: UICollectionViewCell {
+class ClassesCollectionViewCell: UICollectionViewCell {
     static let identifier = "SquareCollectionViewCell"
     var className: String = ""
-    var squareView: SquareView!
-    weak var delegate: SquareViewDelegate?
-    weak var goToDetailDelegate: GoToDetail?
+    var squareView: ClassesView!
+    weak var delegate: ClassesViewDelegate?
+    weak var goToDetailDelegate: GoToStudentNotesPage?
     
     var squareData: SquareData? {
         didSet {
@@ -43,18 +42,13 @@ class SquareCollectionViewCell: UICollectionViewCell {
         setupSquareView()
     }
     
-    
     private func setupSquareView() {
-        squareView = SquareView(frame: bounds)
+        squareView = ClassesView(frame: bounds)
         squareView.delegate = delegate
         squareView.goToDetailDelegate = goToDetailDelegate
         squareView.isUserInteractionEnabled = true
         addSubview(squareView)
-        
-        squareView.onDelete = { [weak self] in
-            self?.goToDetailDelegate?.updateCollectionView()
-        }
-        
+                
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(squareTapped))
         squareView.addGestureRecognizer(tapGesture)
         squareView.frame = bounds
