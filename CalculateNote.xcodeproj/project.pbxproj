@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		460C035B2B49D0C00089AA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C035A2B49D0C00089AA68 /* Constants.swift */; };
 		462BC3F72B4B43150079C235 /* ChechBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BC3F62B4B43150079C235 /* ChechBoxView.swift */; };
-		462E477E2B473FB7004F43A0 /* ClassesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E477D2B473FB7004F43A0 /* ClassesViewModel.swift */; };
 		462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */; };
 		462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */; };
 		462E47852B474BA9004F43A0 /* OnBoardingViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */; };
 		462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */; };
 		462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462E47882B474CF7004F43A0 /* OnBoardingElements.swift */; };
+		463876EC2B546F6800626255 /* ClassListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463876EB2B546F6800626255 /* ClassListViewCell.swift */; };
+		463876EE2B546F7400626255 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463876ED2B546F7400626255 /* ClassListViewController.swift */; };
+		463876F02B5476F000626255 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463876EF2B5476F000626255 /* UserDataManager.swift */; };
 		464460652B4C2B030056E77C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464460642B4C2B030056E77C /* SettingsViewController.swift */; };
 		464460692B4C2C3E0056E77C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464460682B4C2C3E0056E77C /* Coordinator.swift */; };
 		4644606B2B4C2C900056E77C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4644606A2B4C2C900056E77C /* AppCoordinator.swift */; };
@@ -24,9 +26,6 @@
 		468550D92B446E8E00C213F8 /* StudentsNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550D82B446E8E00C213F8 /* StudentsNotesTableViewCell.swift */; };
 		468550DB2B4497B500C213F8 /* StudentNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550DA2B4497B500C213F8 /* StudentNotesViewModel.swift */; };
 		468550DD2B44B49300C213F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468550DC2B44B49300C213F8 /* Colors.swift */; };
-		4692FD162B39E5A800D67A89 /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692FD152B39E5A800D67A89 /* ClassesViewController.swift */; };
-		4692FD182B39E5B000D67A89 /* ClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692FD172B39E5B000D67A89 /* ClassesView.swift */; };
-		46AD95A92B46040A00AC29AD /* ClassesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AD95A82B46040A00AC29AD /* ClassesCollectionViewCell.swift */; };
 		46C970AF2B03C29200B8D90A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970AE2B03C29200B8D90A /* AppDelegate.swift */; };
 		46C970B32B03C29200B8D90A /* StudentNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C970B22B03C29200B8D90A /* StudentNotesViewController.swift */; };
 		46C970B82B03C29400B8D90A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C970B72B03C29400B8D90A /* Assets.xcassets */; };
@@ -40,12 +39,14 @@
 /* Begin PBXFileReference section */
 		460C035A2B49D0C00089AA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		462BC3F62B4B43150079C235 /* ChechBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChechBoxView.swift; sourceTree = "<group>"; };
-		462E477D2B473FB7004F43A0 /* ClassesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewModel.swift; sourceTree = "<group>"; };
 		462E47802B474B5F004F43A0 /* OnBoardingViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController1.swift; sourceTree = "<group>"; };
 		462E47822B474B88004F43A0 /* OnBoardingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController2.swift; sourceTree = "<group>"; };
 		462E47842B474BA9004F43A0 /* OnBoardingViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController3.swift; sourceTree = "<group>"; };
 		462E47862B474BC9004F43A0 /* ManageOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOnBoardingViewController.swift; sourceTree = "<group>"; };
 		462E47882B474CF7004F43A0 /* OnBoardingElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingElements.swift; sourceTree = "<group>"; };
+		463876EB2B546F6800626255 /* ClassListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListViewCell.swift; sourceTree = "<group>"; };
+		463876ED2B546F7400626255 /* ClassListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
+		463876EF2B5476F000626255 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		464460642B4C2B030056E77C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		464460682B4C2C3E0056E77C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4644606A2B4C2C900056E77C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -54,9 +55,6 @@
 		468550D82B446E8E00C213F8 /* StudentsNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsNotesTableViewCell.swift; sourceTree = "<group>"; };
 		468550DA2B4497B500C213F8 /* StudentNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNotesViewModel.swift; sourceTree = "<group>"; };
 		468550DC2B44B49300C213F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		4692FD152B39E5A800D67A89 /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
-		4692FD172B39E5B000D67A89 /* ClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesView.swift; sourceTree = "<group>"; };
-		46AD95A82B46040A00AC29AD /* ClassesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewCell.swift; sourceTree = "<group>"; };
 		46C970AB2B03C29200B8D90A /* CalculateNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculateNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C970AE2B03C29200B8D90A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46C970B22B03C29200B8D90A /* StudentNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNotesViewController.swift; sourceTree = "<group>"; };
@@ -154,10 +152,9 @@
 		4692FD142B39E59900D67A89 /* ClassList */ = {
 			isa = PBXGroup;
 			children = (
-				4692FD152B39E5A800D67A89 /* ClassesViewController.swift */,
-				46AD95A82B46040A00AC29AD /* ClassesCollectionViewCell.swift */,
-				4692FD172B39E5B000D67A89 /* ClassesView.swift */,
-				462E477D2B473FB7004F43A0 /* ClassesViewModel.swift */,
+				463876EB2B546F6800626255 /* ClassListViewCell.swift */,
+				463876ED2B546F7400626255 /* ClassListViewController.swift */,
+				463876EF2B5476F000626255 /* UserDataManager.swift */,
 			);
 			path = ClassList;
 			sourceTree = "<group>";
@@ -292,14 +289,13 @@
 				462BC3F72B4B43150079C235 /* ChechBoxView.swift in Sources */,
 				462E47832B474B88004F43A0 /* OnBoardingViewController2.swift in Sources */,
 				462E47812B474B5F004F43A0 /* OnBoardingViewController1.swift in Sources */,
-				4692FD162B39E5A800D67A89 /* ClassesViewController.swift in Sources */,
-				4692FD182B39E5B000D67A89 /* ClassesView.swift in Sources */,
 				468550D92B446E8E00C213F8 /* StudentsNotesTableViewCell.swift in Sources */,
 				4667542F2B3B2FF800543E44 /* SquareData.swift in Sources */,
-				462E477E2B473FB7004F43A0 /* ClassesViewModel.swift in Sources */,
-				46AD95A92B46040A00AC29AD /* ClassesCollectionViewCell.swift in Sources */,
+				463876EC2B546F6800626255 /* ClassListViewCell.swift in Sources */,
 				46C970C62B03C4D100B8D90A /* StudentAndNotesModel.swift in Sources */,
 				462E47852B474BA9004F43A0 /* OnBoardingViewController3.swift in Sources */,
+				463876EE2B546F7400626255 /* ClassListViewController.swift in Sources */,
+				463876F02B5476F000626255 /* UserDataManager.swift in Sources */,
 				462E47872B474BC9004F43A0 /* ManageOnBoardingViewController.swift in Sources */,
 				4684FDCC2B48AC5C009C7965 /* OnBoardingViewController4.swift in Sources */,
 				462E47892B474CF7004F43A0 /* OnBoardingElements.swift in Sources */,

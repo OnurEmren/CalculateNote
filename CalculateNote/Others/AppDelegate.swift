@@ -33,18 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
-    func showOnboardingScreen() {
-        let onboardingViewController = ManageOnBoardingViewController()
-        let navigationController = UINavigationController(rootViewController: onboardingViewController)
-        window?.rootViewController = navigationController
-    }
-    
-    func showMainScreen() {
-        let squareViewController = ClassesViewController()
-        let squareNavController = UINavigationController(rootViewController: squareViewController)
-        window?.rootViewController = squareNavController
-    }
 }
 
 

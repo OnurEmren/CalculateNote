@@ -17,7 +17,7 @@ class AppCoordinator: Coordinator {
     func eventOccured(with type: Event) {
         switch type {
         case .goToClassesViewControllerPage:
-            let squareVC = ClassesViewController()
+            let squareVC = ClassListViewController()
             navigationController?.pushViewController(squareVC, animated: true)
             
         case .goToClassroom(let className):
@@ -32,7 +32,7 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let squareViewController = ClassesViewController()
+        let squareViewController = ClassListViewController()
         squareViewController.coordinator = self
         navigationController?.setViewControllers([squareViewController], animated: false)
     }
