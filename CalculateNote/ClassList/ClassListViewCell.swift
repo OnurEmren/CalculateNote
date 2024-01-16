@@ -18,20 +18,23 @@ class ClassListViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         layer.borderWidth = 1.5
-        layer.cornerRadius = 15
+        layer.cornerRadius = Constants.cornerRadius
+        layer.borderColor = Colors.darkThemeColor.cgColor
         layer.masksToBounds = true
         
         titleLabel = UILabel()
         titleLabel.textColor = Colors.lightThemeColor
         titleLabel.backgroundColor = Colors.darkThemeColor
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.layer.cornerRadius = Constants.cornerRadius
+        titleLabel.layer.masksToBounds = true
+        titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.labelFont)
         contentView.addSubview(titleLabel)
         
         deleteButton = UIButton(type: .system)
         deleteButton.setTitle("Sil", for: .normal)
         deleteButton.tintColor = .red
-        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: Constants.labelFont - 2)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         contentView.addSubview(deleteButton)
         
@@ -80,6 +83,20 @@ class ClassListViewCell: UICollectionViewCell {
             viewController.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    override var canBecomeFocused: Bool {
+          return true
+      }
+
+      override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+          if isFocused {
+              // Hücre odaklandığında yapılacak işlemler
+              self.backgroundColor = UIColor.yellow
+          } else {
+              // Hücre odaktan çıkınca yapılacak işlemler
+              self.backgroundColor = UIColor.white
+          }
+      }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

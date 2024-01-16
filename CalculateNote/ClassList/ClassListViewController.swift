@@ -14,6 +14,7 @@ class ClassListViewController: UIViewController, UICollectionViewDataSource, UIC
     let cellIdentifier = "CustomCell"
     private let squareViewControllerKey = "SquareViewControllerKey"
     private var addButton: UIButton!
+    private var settingsButton: UIButton!
     
     var squareDataArray: [SquareData] {
         get {
@@ -27,12 +28,20 @@ class ClassListViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setSettingButton()
         backgroundImage()
         setupCollectionView()
         setAddButton()
         view.backgroundColor = Colors.darkThemeColor
         squareDataArray = UserDataManager.shared.loadSquareData()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+//MARK: - Setup Views
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -73,11 +82,29 @@ class ClassListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         addButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-64)
         }
     }
     
-    // MARK: - UICollectionViewDataSource
+    private func setSettingButton() {
+        settingsButton = UIButton(type: .system)
+        settingsButton.setTitle("Hakkında", for: .normal)
+        settingsButton.tintColor = Colors.darkThemeColor
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        view.addSubview(settingsButton)
+        
+        settingsButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.right.equalTo(-30)
+        }
+    }
+    
+    @objc
+    private func settingsButtonTapped() {
+        coordinator?.eventOccured(with: .goToSettings)
+    }
+    
+// MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return squareDataArray.count
@@ -102,24 +129,22 @@ class ClassListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         if let indexPath = collectionView.indexPath(for: selectedCell) {
             let selectedSquareData = squareDataArray[indexPath.item]
-            
+            let onBoardingVC = ClassListViewController()
+            onBoardingVC.coordinator = coordinator
             coordinator?.eventOccured(with: .goToClassroom(className: selectedSquareData.className))
         }
     }
     
-    // MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 250, height: 250)
     }
 }
 
+//MARK: - Extensions
 
 extension ClassListViewController {
-    @objc func addButtonTapped() {
-        showAddItemDialog()
-    }
-    
     func showAddItemDialog() {
         let alertController = UIAlertController(title: "Yeni Sınıf Ekle", message: "Lütfen sınıf adını girin", preferredStyle: .alert)
         
@@ -144,5 +169,10 @@ extension ClassListViewController {
         alertController.addAction(addAction)
         
         present(alertController, animated: true, completion: nil)
+
+    }
+    
+    @objc func addButtonTapped() {
+        showAddItemDialog()
     }
 }

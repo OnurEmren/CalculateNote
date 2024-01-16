@@ -9,6 +9,7 @@ import Foundation
 
 struct SquareData: Codable {
     var className: String
+    
 
     init(className: String) {
         self.className = className

@@ -18,7 +18,8 @@ protocol Coordinator: AnyObject {
     var navigationController: UINavigationController? { get set }
     func eventOccured(with type: Event)
     func start()
-    func onBoardingStart()
+    func showOnboarding()
+    func showMainScreen()
 }
 
 protocol Coordinating {

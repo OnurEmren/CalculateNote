@@ -11,28 +11,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var coordinator: AppCoordinator?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let navVC = UINavigationController()
-        let coordinator = AppCoordinator()
-        coordinator.navigationController = navVC
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navVC
-        window.makeKeyAndVisible()
-        self.window = window
-        
-        //MARK: - App Scene Control.
-        
-        // if the user launched before the app, app should be go to MainScreen else, onBoarding Screen.
-        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
-            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-            coordinator.onBoardingStart()
-        } else {
-            coordinator.start()
-        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let appCoordinator = AppCoordinator(window: window)
+        appCoordinator.start()
+
+        window?.rootViewController = appCoordinator.navigationController
+        window?.makeKeyAndVisible()
+
         return true
     }
+
+
 }
 
 

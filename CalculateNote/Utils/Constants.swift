@@ -30,7 +30,7 @@ enum Constants {
     //DeleteButton Constants
     static let deleteButtonWidth = 40
     static let deleteButtonHeight = 20
-    static let deleteButtonTop = 5
+    static let deleteButtonTop = 20
     static let deleteButtonTrailing = -5
     
     //ClassName Constants
@@ -43,6 +43,11 @@ enum Constants {
     //SettingsView Strings
     static let titleText = "Nasıl Kullanılır?"
     static let descriptionText = """
+        
+        
+        
+        
+        • Bu uygulama Türkçe ve Yabancı Dil öğretmenlerinin sınav notlarını kolayca hesaplamaları amacıyla geliştirilmiştir.
         
         • Her sınıfa 50 öğrenci ekleyebilirsiniz.
         
