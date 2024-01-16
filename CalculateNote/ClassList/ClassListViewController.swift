@@ -129,8 +129,7 @@ class ClassListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         if let indexPath = collectionView.indexPath(for: selectedCell) {
             let selectedSquareData = squareDataArray[indexPath.item]
-            let onBoardingVC = ClassListViewController()
-            onBoardingVC.coordinator = coordinator
+       
             coordinator?.eventOccured(with: .goToClassroom(className: selectedSquareData.className))
         }
     }

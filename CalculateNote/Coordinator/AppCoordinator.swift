@@ -40,8 +40,6 @@ class AppCoordinator: Coordinator {
         }
     }
     
-    
-    
     func start() {
         navigationController = UINavigationController()
         if UserDefaults.standard.bool(forKey: "onboardingShown") {
@@ -56,8 +54,6 @@ class AppCoordinator: Coordinator {
     func showOnboarding() {
         UserDefaults.standard.set(true, forKey: "onboardingShown")
         let onboardingVC = ManageOnBoardingViewController()
-        let classListVC = ClassListViewController()
-        classListVC.coordinator = self
         onboardingVC.coordinator = self
         navigationController?.pushViewController(onboardingVC, animated: false)
     }

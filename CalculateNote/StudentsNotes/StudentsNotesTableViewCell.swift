@@ -132,7 +132,7 @@ class StudentsNotesTableViewCell: UITableViewCell, UITextFieldDelegate {
         nameTextField.text = student.name
         gradeTextField1.text = student.grades[0].map { String($0) } ?? ""
         gradeTextField2.text = student.grades[1].map { String($0) } ?? ""
-        gradeTextField3.text = student.grades[2].map { String($0) } ?? ""  
+        gradeTextField3.text = student.grades[2].map { String($0) } ?? ""
     }
     
     func updateResultLabel(withAverage average: Double) {
@@ -197,7 +197,7 @@ class StudentsNotesTableViewCell: UITableViewCell, UITextFieldDelegate {
         upgradeCheckBoxColors(gradeTextField2)
         upgradeCheckBoxColors(gradeTextField3)
     }
-
+    
     func upgradeCheckBoxColors(_ textField: UITextField) {
         if textField.isEnabled {
             textField.backgroundColor = .white
@@ -207,7 +207,6 @@ class StudentsNotesTableViewCell: UITableViewCell, UITextFieldDelegate {
             textField.textColor = .darkGray
         }
     }
-
     
     @objc func gradeTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text, let grade = Double(text) {
@@ -219,6 +218,19 @@ class StudentsNotesTableViewCell: UITableViewCell, UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return false
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        // Yeni metni oluştur
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        if newText.isEmpty || (Int(newText) != nil && newText.count <= 3 && Int(newText)! <= 100) {
+            return true
+        } else {
+            self.showToast(message: "Lütfen geçerli bir sayı giriniz.")
+            return false
+        }
+    }
 }
 
 extension UITableViewCell {
@@ -228,5 +240,27 @@ extension UITableViewCell {
             return tableView.indexPathForRow(at: point)
         }
         return nil
+    }
+}
+
+extension UIView {
+    func showToast(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 35))
+        toastLabel.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.systemFont(ofSize: 12)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        self.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { (isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
