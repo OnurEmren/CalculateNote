@@ -1,10 +1,10 @@
-#Calculate Note
+# Calculate Note
 
 Hızlı not hesaplama aracı
 
 Sınav sistemi değişti. Artık dil derslerinde (Türkçe ve Yabancı Diller) öğrenciler 3 ders üzerinden sınav oluyorlar. Bu da beraberinde bir takım hesaplama işlemlerini getiriyor elbette. Ancak CalculateNote ile artık bu hesaplamaları yapmak çok kolay. Öğrencinin aldığı yazılı sınav, dinleme sınavı ve konuşma sınavı notlarının ortalamasını tek tuşla alabilmeniz mümkün. Üstelik bu notlar kaydedilir ve siz silene kadar da uygulamanızdan kaybolmaz. 
 
-İşin teknik boyutunda ise gelişmiş metodlar yer almakta. Mümkün olduğu kadar modern mimari ile yazılan bu uygulamada Coordinator, MVVM gibi tasarım desenleri kullanıldı. Görünüm programmatic olarak yazıldı ve SnapKit kullanıldı.
+İşin teknik boyutunda ise modern mimari söz konusu. Uygulamada **Coordinator**, **MVVM** gibi tasarım desenleri kullanıldı. Görünüm programmatic olarak yazıldı ve **SnapKit** kullanıldı.
 
 Geri dönüşlerinizi onuremren33@gmail.com adresine ulaştırabilirsiniz :)
 
