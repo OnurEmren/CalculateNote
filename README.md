@@ -1,6 +1,6 @@
-<img width="645" alt="CalculateNoteOnBoarding4" src="https://github.com/OnurEmren/CalculateNote/assets/98044736/7ed369f4-3d7c-44a9-99f7-9bf0c911f802">#Calculate Note
+#Calculate Note
 
-Hızlıca not hesaplama aracı
+Hızlı not hesaplama aracı
 
 Sınav sistemi değişti. Artık dil derslerinde (Türkçe ve Yabancı Diller) öğrenciler 3 ders üzerinden sınav oluyorlar. Bu da beraberinde bir takım hesaplama işlemlerini getiriyor elbette. Ancak CalculateNote ile artık bu hesaplamaları yapmak çok kolay. Öğrencinin aldığı yazılı sınav, dinleme sınavı ve konuşma sınavı notlarının ortalamasını tek tuşla alabilmeniz mümkün. Üstelik bu notlar kaydedilir ve siz silene kadar da uygulamanızdan kaybolmaz. 
 
