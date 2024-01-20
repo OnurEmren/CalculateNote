@@ -7,6 +7,7 @@ Sınav sistemi değişti. Artık dil derslerinde (Türkçe ve Yabancı Diller) �
 İşin teknik boyutunda ise modern mimari söz konusu. Uygulamada **Coordinator**, **MVVM** gibi tasarım desenleri kullanıldı. Görünüm programmatic olarak yazıldı ve **SnapKit** kullanıldı.
 
 icons:
+
 <a href="https://www.flaticon.com/free-icons/accounting" title="accounting icons">Accounting icons created by Eucalyp - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by IYAHICON - Flaticon</a>
