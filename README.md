@@ -6,6 +6,10 @@ Sınav sistemi değişti. Artık dil derslerinde (Türkçe ve Yabancı Diller) �
 
 İşin teknik boyutunda ise modern mimari söz konusu. Uygulamada **Coordinator**, **MVVM** gibi tasarım desenleri kullanıldı. Görünüm programmatic olarak yazıldı ve **SnapKit** kullanıldı.
 
+icons:
+<a href="https://www.flaticon.com/free-icons/accounting" title="accounting icons">Accounting icons created by Eucalyp - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by IYAHICON - Flaticon</a>
+
 Geri dönüşlerinizi onuremren33@gmail.com adresine ulaştırabilirsiniz :)
 
 <img width="250" alt="CalculateNoteOnBoarding" src="https://github.com/OnurEmren/CalculateNote/assets/98044736/3e2bac59-d18b-42f9-899c-6582785b6b60">
